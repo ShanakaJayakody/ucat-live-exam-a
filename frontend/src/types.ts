@@ -1,3 +1,5 @@
+export type ExamStatus = 'loading' | 'ready' | 'active' | 'finished';
+
 export interface Question {
   id: string;
   text: string;
@@ -13,6 +15,7 @@ export interface Section {
 }
 
 export interface ExamState {
+  status: ExamStatus;
   currentSectionIndex: number;
   sections: Section[];
   answers: { [questionId: string]: string };
@@ -21,4 +24,5 @@ export interface ExamState {
   setSections: (sections: Section[]) => void;
   setAnswer: (questionId: string, answer: string) => void;
   setSectionTimer: (sectionId: string, time: number) => void;
+  startExam: () => void;
 } 
