@@ -1,17 +1,17 @@
-// File: src/store/examStore.ts (Corrected and Fully-Typed Version)
+// File: src/store/examStore.ts (Corrected and Final Version)
 
 import { create } from 'zustand';
-import { ExamState } from '../types';
+import { StateCreator } from 'zustand';
 
-// ... (Your Question and ExamSections interfaces are good, keep them)
+// Define the types for our data for TypeScript
 export interface Question {
     id: string;
     section: string;
     questionText: string;
     options: { id: string; text: string }[];
     correctAnswer: string;
-    passage?: string;
-    explanation?: string;
+    passage?: string; 
+    explanation?: string; 
 }
 
 export interface ExamSections {
@@ -22,27 +22,84 @@ export interface ExamSections {
     situational_judgement: Question[];
 }
 
-export const useExamStore = create<ExamState>((set) => ({
-  status: 'loading',
+// This is the interface the error is about
+interface ExamState {
+  sections: Partial<ExamSections>;
+  sectionOrder: (keyof ExamSections)[];
+  currentSectionIndex: number;
+  currentQuestionIndex: number;
+  answers: Record<string, Record<string, any>>;
+  status: 'loading' | 'ready' | 'active' | 'finished' | 'error';
+  // FIX IS HERE: We are defining `setQuestions` so TypeScript knows it exists.
+  setQuestions: (groupedQuestions: Partial<ExamSections>) => void; 
+  startExam: () => void;
+  answerQuestion: (sectionKey: string, questionId: string, answer: any) => void;
+  nextQuestion: () => void;
+  prevQuestion: () => void;
+  goToQuestion: (questionIndex: number) => void;
+  completeSection: () => void;
+}
+
+const sectionOrder: (keyof ExamSections)[] = [
+    "verbal_reasoning",
+    "decision_making",
+    "quantitative_reasoning",
+    "abstract_reasoning",
+    "situational_judgement"
+];
+
+const examStateCreator: StateCreator<ExamState> = (set, get) => ({
+  sections: {},
+  sectionOrder: sectionOrder,
   currentSectionIndex: 0,
-  sections: [],
+  currentQuestionIndex: 0,
   answers: {},
-  sectionTimers: {},
-  setSections: (sections) => set({ sections, status: 'ready' }),
-  setAnswer: (questionId, answer) =>
+  status: 'loading',
+
+  // FIX IS HERE: We are implementing the `setQuestions` function.
+  setQuestions: (groupedQuestions) => set({ sections: groupedQuestions, status: 'ready' }),
+  startExam: () => set({ status: 'active' }),
+
+  answerQuestion: (sectionKey, questionId, answer) =>
     set((state) => ({
       answers: {
         ...state.answers,
-        [questionId]: answer,
+        [sectionKey]: {
+          ...state.answers[sectionKey],
+          [questionId]: answer,
+        },
       },
     })),
-  setSectionTimer: (sectionId, time) =>
+
+  nextQuestion: () => {
+    const sectionKey = get().sectionOrder[get().currentSectionIndex];
+    const currentSectionLength = get().sections[sectionKey]?.length || 0;
     set((state) => ({
-      sectionTimers: {
-        ...state.sectionTimers,
-        [sectionId]: time,
-      },
-    })),
-  startExam: () => set({ status: 'active' }),
-  setCurrentSectionIndex: (index) => set({ currentSectionIndex: index }),
-}));
+      currentQuestionIndex: Math.min(state.currentQuestionIndex + 1, currentSectionLength - 1),
+    }));
+  },
+
+  prevQuestion: () => {
+    set((state) => ({
+      currentQuestionIndex: Math.max(state.currentQuestionIndex - 1, 0),
+    }));
+  },
+  
+  goToQuestion: (questionIndex: number) => {
+    set({ currentQuestionIndex: questionIndex });
+  },
+
+  completeSection: () => {
+    const { currentSectionIndex, sectionOrder } = get();
+    if (currentSectionIndex < sectionOrder.length - 1) {
+      set({
+        currentSectionIndex: currentSectionIndex + 1,
+        currentQuestionIndex: 0,
+      });
+    } else {
+      set({ status: 'finished' });
+    }
+  },
+});
+
+export const useExamStore = create(examStateCreator);

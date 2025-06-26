@@ -1,31 +1,48 @@
+// File: src/components/ExamEngine.tsx (Using questions.json)
+
 import React, { useEffect } from 'react';
 import SectionView from './SectionView';
-import { useExamStore } from '../store/examStore';
-import { fetchExamDocument } from '../services/examService';
-import { Section } from '../types';
+import { useExamStore, Question } from '../store/examStore';
+
+// Helper function to group questions by section
+const groupQuestionsBySection = (questions: Question[]) => {
+  return questions.reduce((acc, question) => {
+    const sectionKey = question.section;
+    if (!acc[sectionKey]) {
+      acc[sectionKey] = [];
+    }
+    acc[sectionKey].push(question);
+    return acc;
+  }, {} as Record<string, Question[]>);
+};
 
 const ExamEngine: React.FC = () => {
   const status = useExamStore((state) => state.status);
-  const setSections = useExamStore((state) => state.setSections);
+  const setQuestions = useExamStore((state) => state.setQuestions);
   const startExam = useExamStore((state) => state.startExam);
-  const sections = useExamStore((state) => state.sections);
-  const currentSectionIndex = useExamStore((state) => state.currentSectionIndex);
 
   useEffect(() => {
     const loadExam = async () => {
       try {
-        const sectionsData = await fetchExamDocument('main-exam-id'); // Using a placeholder ID
-        setSections(sectionsData);
+        // Fetch questions from the JSON file in the public directory
+        const response = await fetch('/questions.json');
+        if (!response.ok) {
+          throw new Error('Failed to fetch questions');
+        }
+        const questions: Question[] = await response.json();
+        
+        // Group the questions by section
+        const groupedQuestions = groupQuestionsBySection(questions);
+        setQuestions(groupedQuestions);
       } catch (error) {
         console.error("Failed to load exam:", error);
-        // Here you could set an error status in the store
       }
     };
 
     if (status === 'loading') {
       loadExam();
     }
-  }, [status, setSections]);
+  }, [status, setQuestions]);
 
   if (status === 'loading') {
     return (
@@ -55,7 +72,6 @@ const ExamEngine: React.FC = () => {
   if (status === 'active') {
     return (
       <main className="flex flex-col items-center min-h-screen bg-gray-100 p-4 md:p-8 space-y-6">
-        <p>Current Section: {sections[currentSectionIndex]?.name}</p>
         <SectionView />
       </main>
     );
@@ -64,4 +80,4 @@ const ExamEngine: React.FC = () => {
   return <div className="text-red-500 text-center mt-10">An unexpected error occurred. Please refresh the page.</div>;
 };
 
-export default ExamEngine; 
+export default ExamEngine;
