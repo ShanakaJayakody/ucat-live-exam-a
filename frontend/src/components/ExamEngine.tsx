@@ -70,11 +70,7 @@ const ExamEngine: React.FC = () => {
   }
 
   if (status === 'active') {
-    return (
-      <main className="flex flex-col items-center min-h-screen bg-gray-100 p-4 md:p-8 space-y-6">
-        <SectionView />
-      </main>
-    );
+    return <SectionView />;
   }
 
   return <div className="text-red-500 text-center mt-10">An unexpected error occurred. Please refresh the page.</div>;

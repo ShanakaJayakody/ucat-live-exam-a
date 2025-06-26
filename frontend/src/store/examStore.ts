@@ -11,6 +11,7 @@ export interface Question {
     options: { id: string; text: string }[];
     correctAnswer: string;
     passage?: string; 
+    stimulus?: string;
     explanation?: string; 
 }
 

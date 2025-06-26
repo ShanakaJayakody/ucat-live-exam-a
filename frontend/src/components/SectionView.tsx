@@ -12,7 +12,8 @@ const SectionView: React.FC = () => {
     currentSectionIndex,
     currentQuestionIndex,
     nextQuestion,
-    prevQuestion
+    prevQuestion,
+    answers
   } = useExamStore();
 
   // --- THIS IS THE FIX ---
@@ -36,32 +37,124 @@ const SectionView: React.FC = () => {
     return <div>Loading question...</div>;
   }
 
+  const sectionName = sectionKey.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  const currentAnswer = answers[sectionKey]?.[question.id];
+
   return (
-    <div className="w-full max-w-4xl mx-auto">
-      <div className="bg-white p-4 rounded-lg shadow-sm mb-6 sticky top-4 z-10 border-b">
-          <h2 className="text-2xl font-bold text-gray-800 capitalize">
-            {sectionKey.replace(/_/g, ' ')}
-          </h2>
-          <p className="text-gray-600">Question {currentQuestionIndex + 1} of {totalQuestions}</p>
+    <div className="h-screen flex flex-col bg-gray-50">
+      {/* Blue Header */}
+      <div className="bg-blue-600 text-white px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center space-x-4">
+          <h1 className="text-xl font-semibold">{sectionName}</h1>
+          <div className="flex items-center space-x-4">
+            <button className="flex items-center space-x-2 px-3 py-1 bg-blue-700 rounded hover:bg-blue-800 transition-colors">
+              <span className="text-sm">📝</span>
+              <span className="text-sm">Explain Answer</span>
+            </button>
+            <button className="flex items-center space-x-2 px-3 py-1 bg-blue-700 rounded hover:bg-blue-800 transition-colors">
+              <span className="text-sm">🧮</span>
+              <span className="text-sm">Calculator</span>
+            </button>
+          </div>
+        </div>
+        <div className="flex items-center space-x-4">
+          <span className="text-sm font-medium">
+            {currentQuestionIndex + 1} of {totalQuestions}
+          </span>
+          <button className="flex items-center space-x-2 px-3 py-1 bg-blue-700 rounded hover:bg-blue-800 transition-colors">
+            <span className="text-sm">🏳️</span>
+            <span className="text-sm">Flag for Review</span>
+          </button>
+        </div>
       </div>
 
-      <QuestionDisplay question={question} sectionKey={sectionKey} />
+      {/* Main Content Area */}
+      <div className="flex-1 flex">
+        {/* Left Panel - Passage */}
+        <div className="flex-1 p-6 bg-white overflow-y-auto">
+          {question.passage && (
+            <div className="prose max-w-none">
+              <div className="text-gray-800 leading-relaxed whitespace-pre-wrap">
+                {question.passage}
+              </div>
+            </div>
+          )}
+        </div>
 
-      <div className="flex justify-between mt-8">
-        <button
-          onClick={prevQuestion}
-          disabled={currentQuestionIndex === 0}
-          className="px-6 py-3 bg-gray-600 text-white font-bold rounded-lg disabled:bg-gray-300 hover:bg-gray-700 transition-colors"
-        >
-          Previous
+        {/* Blue Vertical Divider */}
+        <div className="w-1 bg-blue-600"></div>
+
+        {/* Right Panel - Question */}
+        <div className="flex-1 p-6 bg-white overflow-y-auto">
+          <div className="h-full flex flex-col">
+            <div className="mb-6">
+              <p className="text-lg font-medium text-gray-800 leading-relaxed">
+                {question.questionText}
+              </p>
+            </div>
+            
+            <div className="space-y-3 flex-1">
+              {question.options.map((option) => (
+                <button
+                  key={option.id}
+                  onClick={() => useExamStore.getState().answerQuestion(sectionKey, question.id, option.id)}
+                  className={`w-full p-4 text-left border rounded-lg transition-all text-sm
+                              ${currentAnswer === option.id 
+                                  ? 'border-blue-500 bg-blue-50 ring-1 ring-blue-300' 
+                                  : 'border-gray-300 bg-white hover:bg-gray-50'
+                              }`}
+                >
+                  <div className="flex items-start space-x-3">
+                    <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 mt-0.5
+                                    ${currentAnswer === option.id 
+                                        ? 'border-blue-500 bg-blue-500' 
+                                        : 'border-gray-400'
+                                    }`}>
+                      {currentAnswer === option.id && (
+                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                      )}
+                    </div>
+                    <div>
+                      <span className="font-semibold text-gray-700">{option.id}.</span>
+                      <span className="ml-2 text-gray-800">{option.text}</span>
+                    </div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Navigation */}
+      <div className="bg-blue-600 px-6 py-3 flex items-center justify-between">
+        <button className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors">
+          🏁 End Exam
         </button>
-        <button
-          onClick={nextQuestion}
-          disabled={currentQuestionIndex === totalQuestions - 1}
-          className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg disabled:bg-gray-300 hover:bg-blue-700 transition-colors"
-        >
-          Next
-        </button>
+        
+        <div className="flex items-center space-x-3">
+          <button
+            onClick={prevQuestion}
+            disabled={currentQuestionIndex === 0}
+            className="px-4 py-2 bg-blue-700 text-white rounded disabled:bg-blue-800 disabled:opacity-50 hover:bg-blue-800 transition-colors flex items-center space-x-2"
+          >
+            <span>◀</span>
+            <span>Previous</span>
+          </button>
+          
+          <button className="px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-800 transition-colors">
+            ⚙️ Navigator
+          </button>
+          
+          <button
+            onClick={nextQuestion}
+            disabled={currentQuestionIndex === totalQuestions - 1}
+            className="px-4 py-2 bg-blue-700 text-white rounded disabled:bg-blue-800 disabled:opacity-50 hover:bg-blue-800 transition-colors flex items-center space-x-2"
+          >
+            <span>Next</span>
+            <span>▶</span>
+          </button>
+        </div>
       </div>
     </div>
   );
