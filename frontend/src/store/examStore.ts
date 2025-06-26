@@ -19,8 +19,6 @@ export interface ExamSections {
     verbal_reasoning: Question[];
     decision_making: Question[];
     quantitative_reasoning: Question[];
-    abstract_reasoning: Question[];
-    situational_judgement: Question[];
 }
 
 // This is the interface the error is about
@@ -30,11 +28,20 @@ interface ExamState {
   currentSectionIndex: number;
   currentQuestionIndex: number;
   answers: Record<string, Record<string, any>>;
-  status: 'loading' | 'ready' | 'active' | 'finished' | 'error';
+  flagged: Record<string, Record<string, boolean>>;
+  questionTimes: Record<string, Record<string, number>>;
+  reviewQuestionIndex: number | null;
+  status: 'loading' | 'ready' | 'active' | 'review' | 'finished' | 'error' | 'instruction';
   // FIX IS HERE: We are defining `setQuestions` so TypeScript knows it exists.
   setQuestions: (groupedQuestions: Partial<ExamSections>) => void; 
   startExam: () => void;
+  startCurrentSection: () => void;
+  reviewExam: () => void;
+  finishExam: () => void;
   answerQuestion: (sectionKey: string, questionId: string, answer: any) => void;
+  addQuestionTime: (sectionKey: string, questionId: string, time: number) => void;
+  setReviewQuestion: (index: number | null) => void;
+  toggleFlag: (sectionKey: string, questionId: string) => void;
   nextQuestion: () => void;
   prevQuestion: () => void;
   goToQuestion: (questionIndex: number) => void;
@@ -45,8 +52,6 @@ const sectionOrder: (keyof ExamSections)[] = [
     "verbal_reasoning",
     "decision_making",
     "quantitative_reasoning",
-    "abstract_reasoning",
-    "situational_judgement"
 ];
 
 const examStateCreator: StateCreator<ExamState> = (set, get) => ({
@@ -55,11 +60,17 @@ const examStateCreator: StateCreator<ExamState> = (set, get) => ({
   currentSectionIndex: 0,
   currentQuestionIndex: 0,
   answers: {},
+  flagged: {},
+  questionTimes: {},
+  reviewQuestionIndex: null,
   status: 'loading',
 
   // FIX IS HERE: We are implementing the `setQuestions` function.
   setQuestions: (groupedQuestions) => set({ sections: groupedQuestions, status: 'ready' }),
-  startExam: () => set({ status: 'active' }),
+  startExam: () => set({ status: 'instruction', currentSectionIndex: 0, reviewQuestionIndex: null }),
+  startCurrentSection: () => set({ status: 'active', currentQuestionIndex: 0 }),
+  reviewExam: () => set({ status: 'review' }),
+  finishExam: () => set({ status: 'finished', reviewQuestionIndex: null }),
 
   answerQuestion: (sectionKey, questionId, answer) =>
     set((state) => ({
@@ -72,12 +83,50 @@ const examStateCreator: StateCreator<ExamState> = (set, get) => ({
       },
     })),
 
-  nextQuestion: () => {
-    const sectionKey = get().sectionOrder[get().currentSectionIndex];
-    const currentSectionLength = get().sections[sectionKey]?.length || 0;
+  setReviewQuestion: (index) => {
+    if (index !== null) {
+      set({ status: 'active', currentQuestionIndex: index, reviewQuestionIndex: index });
+    } else {
+      set({ status: 'finished', reviewQuestionIndex: null });
+    }
+  },
+
+  addQuestionTime: (sectionKey, questionId, time) =>
     set((state) => ({
-      currentQuestionIndex: Math.min(state.currentQuestionIndex + 1, currentSectionLength - 1),
-    }));
+      questionTimes: {
+        ...state.questionTimes,
+        [sectionKey]: {
+          ...state.questionTimes[sectionKey],
+          [questionId]: (state.questionTimes[sectionKey]?.[questionId] || 0) + time,
+        },
+      },
+    })),
+
+  toggleFlag: (sectionKey, questionId) =>
+    set((state) => ({
+      flagged: {
+        ...state.flagged,
+        [sectionKey]: {
+          ...state.flagged[sectionKey],
+          [questionId]: !state.flagged[sectionKey]?.[questionId],
+        },
+      },
+    })),
+
+  nextQuestion: () => {
+    const { sections, currentSectionIndex, sectionOrder, currentQuestionIndex } = get();
+    const sectionKey = sectionOrder[currentSectionIndex];
+    const currentSectionLength = sections[sectionKey]?.length || 0;
+    
+    if (currentQuestionIndex < currentSectionLength - 1) {
+        set({ currentQuestionIndex: currentQuestionIndex + 1 });
+    } else {
+        if (currentSectionIndex < sectionOrder.length - 1) {
+            set({ status: 'instruction', currentSectionIndex: currentSectionIndex + 1 });
+        } else {
+            set({ status: 'finished' });
+        }
+    }
   },
 
   prevQuestion: () => {

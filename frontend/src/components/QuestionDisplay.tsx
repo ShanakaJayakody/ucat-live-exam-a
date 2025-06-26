@@ -9,38 +9,69 @@ import { useExamStore, Question, ExamSections } from '../store/examStore';
 // This is much cleaner and solves the TypeScript errors.
 interface Props {
   question: Question;
-  sectionKey: keyof ExamSections; 
+  sectionKey: keyof ExamSections;
+  isReviewMode: boolean;
 }
 
 // FIX: We add `export` here to make this a named export.
-export const QuestionDisplay: React.FC<Props> = ({ question, sectionKey }) => {
+export const QuestionDisplay: React.FC<Props> = ({ question, sectionKey, isReviewMode }) => {
   const answerQuestion = useExamStore((state) => state.answerQuestion);
   const currentAnswer = useExamStore((state) => state.answers[sectionKey]?.[question.id]);
 
+  const handleSelectOption = (optionId: string) => {
+    if (isReviewMode) return;
+    answerQuestion(sectionKey, question.id, optionId);
+  };
+
   return (
-    <div className="border border-gray-200 rounded-lg p-6 bg-white shadow-md">
-      {question.passage && (
-        <div className="mb-6 p-4 bg-gray-50 border border-gray-200 rounded-md prose max-w-none">
-          <p className="text-gray-700 whitespace-pre-wrap">{question.passage}</p>
+    <>
+      <h4 className="text-md font-semibold mb-3 sticky top-0 bg-white text-gray-900 pb-1">Question <span id="question-number">{useExamStore.getState().currentQuestionIndex + 1}</span></h4>
+      <p id="question-text" className="mb-4 text-gray-900">{question.questionText}</p>
+      <div id="options-container" className="space-y-2">
+        {question.options.map((option) => {
+          let labelClass = 'option-label ';
+          if (isReviewMode) {
+            const isCorrectAnswer = question.correctAnswer === option.id;
+            const isSelectedAnswer = currentAnswer === option.id;
+            if (isCorrectAnswer) {
+              labelClass += 'border-green-500 border-2 bg-green-50 ';
+            } else if (isSelectedAnswer) {
+              labelClass += 'border-red-500 border-2 bg-red-50 ';
+            }
+          } else {
+            if (currentAnswer === option.id) {
+              labelClass += 'selected-answer ';
+            }
+          }
+          
+          return (
+            <label
+              key={option.id}
+              className={labelClass}
+              onClick={() => handleSelectOption(option.id)}
+            >
+              <input
+                type="radio"
+                name={question.id}
+                value={option.id}
+                checked={currentAnswer === option.id}
+                onChange={() => handleSelectOption(option.id)}
+                disabled={isReviewMode}
+                className="hidden"
+              />
+              <span className="font-bold mr-3">{option.id}.</span>
+              {option.text}
+            </label>
+          );
+        })}
+      </div>
+      {isReviewMode && question.explanation && (
+        <div className="explanation-box mt-4">
+          <strong className="font-semibold">Explanation:</strong>
+          <br />
+          {question.explanation}
         </div>
       )}
-      <p className="text-lg font-semibold text-gray-800 mb-4">{question.questionText}</p>
-      <div className="space-y-3">
-        {question.options.map((option) => (
-          <button
-            key={option.id}
-            onClick={() => answerQuestion(sectionKey, question.id, option.id)}
-            className={`w-full p-4 text-left border-2 rounded-lg transition-all
-                        ${currentAnswer === option.id 
-                            ? 'border-blue-500 bg-blue-100 ring-2 ring-blue-300' 
-                            : 'border-gray-300 bg-white hover:bg-gray-100'
-                        }`}
-          >
-            <span className="font-bold mr-3">{option.id}.</span>
-            {option.text}
-          </button>
-        ))}
-      </div>
-    </div>
+    </>
   );
 };

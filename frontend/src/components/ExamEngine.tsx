@@ -3,6 +3,10 @@
 import React, { useEffect } from 'react';
 import SectionView from './SectionView';
 import { useExamStore, Question } from '../store/examStore';
+import { SetupScreen } from './SetupScreen';
+import { ResultsScreen } from './ResultsScreen';
+import { ReviewScreen } from './ReviewScreen';
+import { InstructionScreen } from './InstructionScreen';
 
 // Helper function to group questions by section
 const groupQuestionsBySection = (questions: Question[]) => {
@@ -53,24 +57,27 @@ const ExamEngine: React.FC = () => {
   }
 
   if (status === 'ready') {
+    return <SetupScreen />;
+  }
+
+  if (status === 'instruction') {
+    return <InstructionScreen />;
+  }
+
+  if (status === 'active') {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-8">
-        <div className="text-center bg-white p-10 rounded-lg shadow-xl">
-          <h1 className="text-4xl font-bold mb-4">UCAT Mock Exam</h1>
-          <p className="text-lg text-gray-700 mb-8">You are ready to begin. The exam will start as soon as you click the button below. Good luck.</p>
-          <button
-            onClick={startExam}
-            className="px-8 py-4 bg-green-600 text-white font-bold rounded-lg text-xl hover:bg-green-700 transition-transform transform hover:scale-105"
-          >
-            Start Exam
-          </button>
-        </div>
+      <div id="app-container">
+        <SectionView />
       </div>
     );
   }
 
-  if (status === 'active') {
-    return <SectionView />;
+  if (status === 'review') {
+    return <ReviewScreen />;
+  }
+
+  if (status === 'finished') {
+    return <ResultsScreen />;
   }
 
   return <div className="text-red-500 text-center mt-10">An unexpected error occurred. Please refresh the page.</div>;

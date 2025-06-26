@@ -1,11 +1,13 @@
 // File: src/components/SectionView.tsx (Corrected and Final Version)
 
-import React from 'react';
+// A comment to trigger re-linting
+import React, { useState, useEffect, useRef } from 'react';
+import { useExamStore } from '../store/examStore';
 import { QuestionDisplay } from './QuestionDisplay';
-import { useExamStore } from '../store/examStore'; // Ensure path is correct
+import { Navigator } from './Navigator';
+import Timer from './Timer';
 
-const SectionView: React.FC = () => {
-  // Get all the state and actions we need from the store
+export const SectionView: React.FC = () => {
   const {
     sections,
     sectionOrder,
@@ -13,149 +15,135 @@ const SectionView: React.FC = () => {
     currentQuestionIndex,
     nextQuestion,
     prevQuestion,
-    answers
+    flagged,
+    toggleFlag,
+    reviewExam,
+    finishExam,
+    addQuestionTime,
+    reviewQuestionIndex,
+    setReviewQuestion,
   } = useExamStore();
 
-  // --- THIS IS THE FIX ---
-  // Step 1: Get the section name (e.g., "verbal_reasoning") using the index number.
+  const [isNavigatorOpen, setIsNavigatorOpen] = useState(false);
+  const questionStartTime = useRef<number>(Date.now());
+  
   const sectionKey = sectionOrder[currentSectionIndex];
-
-  // Step 2: Use the section name to get the actual section data from the object.
   const currentSection = sections[sectionKey];
-  // -------------------------
+  const question = currentSection?.[currentQuestionIndex];
+  const totalQuestions = currentSection?.length || 0;
+  
+  const isReviewMode = reviewQuestionIndex !== null;
 
-  // Handle the brief moment before the section data is loaded
+  useEffect(() => {
+    if (!currentSection || isReviewMode) return;
+
+    const previousQuestionId = currentSection[currentQuestionIndex > 0 ? currentQuestionIndex - 1 : 0].id;
+    const timeSpent = Date.now() - questionStartTime.current;
+    
+    if (currentQuestionIndex > 0) {
+      addQuestionTime(sectionKey, previousQuestionId, timeSpent);
+    }
+
+    questionStartTime.current = Date.now();
+
+    return () => {
+      if (currentSection) {
+        const currentQuestionId = currentSection[currentQuestionIndex].id;
+        const finalTimeSpent = Date.now() - questionStartTime.current;
+        addQuestionTime(sectionKey, currentQuestionId, finalTimeSpent);
+      }
+    };
+  }, [currentQuestionIndex, sectionKey, addQuestionTime, currentSection, isReviewMode]);
+
+  const handleFlag = () => {
+    if (isReviewMode || !question) return;
+    toggleFlag(sectionKey, question.id);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (isNavigatorOpen || document.activeElement?.tagName === 'INPUT' || document.activeElement?.tagName === 'TEXTAREA') return;
+      if (isReviewMode || !question) return;
+
+      if (e.altKey || e.metaKey) {
+        if (e.key.toLowerCase() === 'n' && currentQuestionIndex < totalQuestions - 1) {
+          e.preventDefault();
+          nextQuestion();
+        }
+        if (e.key.toLowerCase() === 'p' && currentQuestionIndex > 0) {
+          e.preventDefault();
+          prevQuestion();
+        }
+        if (e.key.toLowerCase() === 'f') {
+          e.preventDefault();
+          handleFlag();
+        }
+      } else if (['a', 'b', 'c', 'd'].includes(e.key.toLowerCase())) {
+        e.preventDefault();
+        const option = question.options.find(opt => opt.id.toLowerCase() === e.key.toLowerCase());
+        if (option) {
+          useExamStore.getState().answerQuestion(sectionKey, question.id, option.id);
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isNavigatorOpen, isReviewMode, nextQuestion, prevQuestion, handleFlag, question, sectionKey, totalQuestions, currentQuestionIndex]);
+
   if (!currentSection) {
     return <div>Loading section...</div>;
   }
 
-  const question = currentSection[currentQuestionIndex];
-  const totalQuestions = currentSection.length;
-
-  // Handle case where a question might not exist (shouldn't happen in normal flow)
   if (!question) {
     return <div>Loading question...</div>;
   }
-
+  
   const sectionName = sectionKey.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-  const currentAnswer = answers[sectionKey]?.[question.id];
-
+  const isFlagged = flagged[sectionKey]?.[question.id] || false;
+  
   return (
-    <div className="h-screen flex flex-col bg-gray-50">
-      {/* Blue Header */}
-      <div className="bg-blue-600 text-white px-6 py-4 flex items-center justify-between">
+    <div id="exam-screen" className="flex flex-col h-full">
+      <div className="header-bar">
+        <span id="exam-title" className="font-semibold">{sectionName}</span>
         <div className="flex items-center space-x-4">
-          <h1 className="text-xl font-semibold">{sectionName}</h1>
-          <div className="flex items-center space-x-4">
-            <button className="flex items-center space-x-2 px-3 py-1 bg-blue-700 rounded hover:bg-blue-800 transition-colors">
-              <span className="text-sm">📝</span>
-              <span className="text-sm">Explain Answer</span>
-            </button>
-            <button className="flex items-center space-x-2 px-3 py-1 bg-blue-700 rounded hover:bg-blue-800 transition-colors">
-              <span className="text-sm">🧮</span>
-              <span className="text-sm">Calculator</span>
-            </button>
+          {isReviewMode && <span className="font-semibold">Reviewing Question</span>}
+          {!isReviewMode && <Timer initialTime={21 * 60} onTimeout={finishExam} />}
+          <span className="text-sm">Question <span id="question-number-info">{currentQuestionIndex + 1}</span> of {totalQuestions}</span>
+          <button id="flag-button" onClick={handleFlag} disabled={isReviewMode} className={`text-sm font-medium border border-white rounded px-2 py-1 transition-colors duration-150 ${isFlagged ? 'flagged' : ''}`}>
+            {isFlagged ? 'Unflag' : 'Flag for Review'}
+          </button>
+        </div>
+      </div>
+      <div className="main-content-area">
+        <div className="passage-column resizable-text">
+          <h3 className="text-lg font-semibold mb-2 sticky top-0 bg-white text-gray-900 pb-1">Passage</h3>
+          <div id="passage-text" className="text-base text-gray-900 leading-relaxed whitespace-pre-wrap">
+            {question.passage || question.stimulus}
           </div>
         </div>
-        <div className="flex items-center space-x-4">
-          <span className="text-sm font-medium">
-            {currentQuestionIndex + 1} of {totalQuestions}
-          </span>
-          <button className="flex items-center space-x-2 px-3 py-1 bg-blue-700 rounded hover:bg-blue-800 transition-colors">
-            <span className="text-sm">🏳️</span>
-            <span className="text-sm">Flag for Review</span>
-          </button>
+        <div className="w-1.5 bg-blue-500"></div>
+        <div className="question-column resizable-text">
+          <QuestionDisplay question={question} sectionKey={sectionKey} isReviewMode={isReviewMode} />
         </div>
       </div>
-
-      {/* Main Content Area */}
-      <div className="flex-1 flex">
-        {/* Left Panel - Passage */}
-        <div className="flex-1 p-6 bg-white overflow-y-auto">
-          {question.passage && (
-            <div className="prose max-w-none">
-              <div className="text-gray-800 leading-relaxed whitespace-pre-wrap">
-                {question.passage}
-              </div>
+      <div className="footer-bar">
+        {isReviewMode ? (
+          <button onClick={() => setReviewQuestion(null)} className="secondary-button-new">← Back to Results</button>
+        ) : (
+          <>
+            <button id="end-exam-button-footer" onClick={reviewExam}>End Exam</button>
+            <div className="flex items-center space-x-2 ml-auto">
+              <button id="prev-button" onClick={prevQuestion} disabled={currentQuestionIndex === 0}>← Previous</button>
+              <button id="navigator-button" onClick={() => setIsNavigatorOpen(true)}>Navigator</button>
+              <button id="next-button" onClick={nextQuestion}>
+                {currentQuestionIndex === totalQuestions - 1 ? 'Next Section' : 'Next →'}
+              </button>
             </div>
-          )}
-        </div>
-
-        {/* Blue Vertical Divider */}
-        <div className="w-1 bg-blue-600"></div>
-
-        {/* Right Panel - Question */}
-        <div className="flex-1 p-6 bg-white overflow-y-auto">
-          <div className="h-full flex flex-col">
-            <div className="mb-6">
-              <p className="text-lg font-medium text-gray-800 leading-relaxed">
-                {question.questionText}
-              </p>
-            </div>
-            
-            <div className="space-y-3 flex-1">
-              {question.options.map((option) => (
-                <button
-                  key={option.id}
-                  onClick={() => useExamStore.getState().answerQuestion(sectionKey, question.id, option.id)}
-                  className={`w-full p-4 text-left border rounded-lg transition-all text-sm
-                              ${currentAnswer === option.id 
-                                  ? 'border-blue-500 bg-blue-50 ring-1 ring-blue-300' 
-                                  : 'border-gray-300 bg-white hover:bg-gray-50'
-                              }`}
-                >
-                  <div className="flex items-start space-x-3">
-                    <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 mt-0.5
-                                    ${currentAnswer === option.id 
-                                        ? 'border-blue-500 bg-blue-500' 
-                                        : 'border-gray-400'
-                                    }`}>
-                      {currentAnswer === option.id && (
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                      )}
-                    </div>
-                    <div>
-                      <span className="font-semibold text-gray-700">{option.id}.</span>
-                      <span className="ml-2 text-gray-800">{option.text}</span>
-                    </div>
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
+          </>
+        )}
       </div>
-
-      {/* Bottom Navigation */}
-      <div className="bg-blue-600 px-6 py-3 flex items-center justify-between">
-        <button className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors">
-          🏁 End Exam
-        </button>
-        
-        <div className="flex items-center space-x-3">
-          <button
-            onClick={prevQuestion}
-            disabled={currentQuestionIndex === 0}
-            className="px-4 py-2 bg-blue-700 text-white rounded disabled:bg-blue-800 disabled:opacity-50 hover:bg-blue-800 transition-colors flex items-center space-x-2"
-          >
-            <span>◀</span>
-            <span>Previous</span>
-          </button>
-          
-          <button className="px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-800 transition-colors">
-            ⚙️ Navigator
-          </button>
-          
-          <button
-            onClick={nextQuestion}
-            disabled={currentQuestionIndex === totalQuestions - 1}
-            className="px-4 py-2 bg-blue-700 text-white rounded disabled:bg-blue-800 disabled:opacity-50 hover:bg-blue-800 transition-colors flex items-center space-x-2"
-          >
-            <span>Next</span>
-            <span>▶</span>
-          </button>
-        </div>
-      </div>
+      {isNavigatorOpen && <Navigator onClose={() => setIsNavigatorOpen(false)} />}
     </div>
   );
 };

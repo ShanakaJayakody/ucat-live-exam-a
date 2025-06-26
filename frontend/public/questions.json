@@ -3015,5 +3015,1193 @@
     "difficulty": 4,
     "tags": ["probability", "game_theory", "logical_reasoning"],
     "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "table_based",
+    "stimulus": "EcoPrint Ltd. offers bulk discounts. VAT is 20% of the total order.\n\nNumber Ordered | Plain, single-colour print | Plain, double-colour print | Metallic single-colour print | Metallic double-colour print\n1 – 9 | £3.80 | £4.40 | £4.80 | £5.60\n10 – 49 | £2.60 | £3.00 | £3.40 | £4.00\n50 – 199 | £1.90 | £2.20 | £2.60 | £3.00\n200 – 499 | £1.40 | £1.70 | £2.00 | £2.30\n500 + | £1.10 | £1.30 | £1.60 | £1.90\n\n(Note: 100 p = £1.00)",
+    "questionText": "Mya orders 420 plain, single-colour tote bags. What is the total price, to the nearest pound, including VAT?",
+    "options": [
+      {
+        "id": "A",
+        "text": "£554"
+      },
+      {
+        "id": "B",
+        "text": "£588"
+      },
+      {
+        "id": "C",
+        "text": "£705"
+      },
+      {
+        "id": "D",
+        "text": "£706"
+      },
+      {
+        "id": "E",
+        "text": "£847"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "1. 420 bags sit in the 200 – 499 band → £1.40 each. 2. Pre-VAT cost = 420 × £1.40 = £588. 3. Add 20% VAT: £588 × 1.20 = £705.60. 4. Nearest whole pound → £706.",
+    "difficulty": 3,
+    "tags": ["table_interpretation", "percentages", "rounding", "multi_step_calculation"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "table_based",
+    "stimulus": "EcoPrint Ltd. offers bulk discounts. VAT is 20% of the total order.\n\nNumber Ordered | Plain, single-colour print | Plain, double-colour print | Metallic single-colour print | Metallic double-colour print\n1 – 9 | £3.80 | £4.40 | £4.80 | £5.60\n10 – 49 | £2.60 | £3.00 | £3.40 | £4.00\n50 – 199 | £1.90 | £2.20 | £2.60 | £3.00\n200 – 499 | £1.40 | £1.70 | £2.00 | £2.30\n500 + | £1.10 | £1.30 | £1.60 | £1.90",
+    "questionText": "Zoe bought plain, double-colour totes. The VAT shown on her invoice was £18. How many bags did she buy?",
+    "options": [
+      {
+        "id": "A",
+        "text": "30"
+      },
+      {
+        "id": "B",
+        "text": "36"
+      },
+      {
+        "id": "C",
+        "text": "41"
+      },
+      {
+        "id": "D",
+        "text": "45"
+      },
+      {
+        "id": "E",
+        "text": "75"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "1. VAT is 20% ⇒ Pre-VAT total = £18 ÷ 0.20 = £90. 2. For plain double-colour bags, the £3.00 price applies to the 10 – 49 band. 3. Number of bags = £90 ÷ £3.00 = 30. 4. 30 falls in the correct band, so answer = 30.",
+    "difficulty": 3,
+    "tags": ["table_interpretation", "percentages", "reverse_calculation", "division"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "table_based",
+    "stimulus": "EcoPrint Ltd. offers bulk discounts. VAT is 20% of the total order.\n\nNumber Ordered | Plain, single-colour print | Plain, double-colour print | Metallic single-colour print | Metallic double-colour print\n1 – 9 | £3.80 | £4.40 | £4.80 | £5.60\n10 – 49 | £2.60 | £3.00 | £3.40 | £4.00\n50 – 199 | £1.90 | £2.20 | £2.60 | £3.00\n200 – 499 | £1.40 | £1.70 | £2.00 | £2.30\n500 + | £1.10 | £1.30 | £1.60 | £1.90",
+    "questionText": "Sasha buys 150 plain, single-colour bags and 80 metallic, double-colour bags. What is the total cost, including VAT?",
+    "options": [
+      {
+        "id": "A",
+        "text": "£525"
+      },
+      {
+        "id": "B",
+        "text": "£588"
+      },
+      {
+        "id": "C",
+        "text": "£630"
+      },
+      {
+        "id": "D",
+        "text": "£726"
+      },
+      {
+        "id": "E",
+        "text": "£756"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Plain SC £1.90 (50 – 199) × 150 = £285. Metallic DC £3.00 (50 – 199) × 80 = £240. Pre-VAT total = £285 + £240 = £525. Add VAT: £525 × 1.20 = £630.",
+    "difficulty": 4,
+    "tags": ["table_interpretation", "percentages", "multi_item_calculation", "addition"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "table_based",
+    "stimulus": "EcoPrint Ltd. offers bulk discounts. VAT is 20% of the total order.\n\nNumber Ordered | Plain, single-colour print | Plain, double-colour print | Metallic single-colour print | Metallic double-colour print\n1 – 9 | £3.80 | £4.40 | £4.80 | £5.60\n10 – 49 | £2.60 | £3.00 | £3.40 | £4.00\n50 – 199 | £1.90 | £2.20 | £2.60 | £3.00\n200 – 499 | £1.40 | £1.70 | £2.00 | £2.30\n500 + | £1.10 | £1.30 | £1.60 | £1.90",
+    "questionText": "Stefan orders 260 plain, single-colour bags and 120 metallic, single-colour bags. What percentage of the total cost (incl. VAT) was spent on the metallic single-colour bags? (Give your answer to 1 decimal place.)",
+    "options": [
+      {
+        "id": "A",
+        "text": "37.2%"
+      },
+      {
+        "id": "B",
+        "text": "40.0%"
+      },
+      {
+        "id": "C",
+        "text": "46.2%"
+      },
+      {
+        "id": "D",
+        "text": "50.7%"
+      },
+      {
+        "id": "E",
+        "text": "55.5%"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Plain SC (200 – 499) £1.40 × 260 = £364 → £364 × 1.20 = £436.80. Metallic SC (50 – 199) £2.60 × 120 = £312 → £312 × 1.20 = £374.40. Total incl. VAT = £436.80 + £374.40 = £811.20. Percentage for metallic SC = £374.40 ÷ £811.20 × 100 = 46.2% (1 dp).",
+    "difficulty": 4,
+    "tags": ["table_interpretation", "percentages", "decimal_places", "complex_calculation"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "chart_based",
+    "stimulus": "The figure shows the email marketing campaign results for a company's quarterly newsletter.\n\nCampaign Performance:\n15,000 → 10,350\nEmails Sent → Emails Opened",
+    "questionText": "What percentage of the emails sent were opened?",
+    "options": [
+      {
+        "id": "A",
+        "text": "65%"
+      },
+      {
+        "id": "B",
+        "text": "67%"
+      },
+      {
+        "id": "C",
+        "text": "69%"
+      },
+      {
+        "id": "D",
+        "text": "71%"
+      },
+      {
+        "id": "E",
+        "text": "73%"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Emails opened: 10,350. Emails sent: 15,000. Percentage = (10,350 ÷ 15,000) × 100 = 69%.",
+    "difficulty": 2,
+    "tags": ["percentages", "basic_calculation", "chart_interpretation"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "table_based",
+    "stimulus": "The table shows population distribution between urban and rural areas across different time periods (in millions).\n\nArea | Period 1 | Period 2 | Period 3 | Period 4\nUrban | 825 | 1,687 | 2,543 | 3,816\nRural | 2,134 | 2,845 | 3,124 | 3,187",
+    "questionText": "In the period with the smallest percentage increase in urban population from the previous period, what was the percentage increase in rural population from the previous period? (Round to two decimal places)",
+    "options": [
+      {
+        "id": "A",
+        "text": "2.02%"
+      },
+      {
+        "id": "B",
+        "text": "5.47%"
+      },
+      {
+        "id": "C",
+        "text": "9.81%"
+      },
+      {
+        "id": "D",
+        "text": "33.35%"
+      },
+      {
+        "id": "E",
+        "text": "50.12%"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Urban percentage increases: Period 1→2: (1,687-825)/825 × 100 = 104.48%. Period 2→3: (2,543-1,687)/1,687 × 100 = 50.74%. Period 3→4: (3,816-2,543)/2,543 × 100 = 50.06% (smallest). Rural increase Period 3→4: (3,187-3,124)/3,124 × 100 = 2.02%.",
+    "difficulty": 4,
+    "tags": ["percentages", "table_interpretation", "comparison", "decimal_places"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "word_problem",
+    "stimulus": "A nation imported 24 million tonnes of natural gas in Year 1 and 30 million tonnes in Year 2.",
+    "questionText": "What was the percentage increase in natural gas imports from Year 1 to Year 2?",
+    "options": [
+      {
+        "id": "A",
+        "text": "20%"
+      },
+      {
+        "id": "B",
+        "text": "24%"
+      },
+      {
+        "id": "C",
+        "text": "25%"
+      },
+      {
+        "id": "D",
+        "text": "26%"
+      },
+      {
+        "id": "E",
+        "text": "30%"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Year 1 imports: 24 million tonnes. Year 2 imports: 30 million tonnes. Increase: 30 - 24 = 6 million tonnes. Percentage increase = (6 ÷ 24) × 100 = 25%.",
+    "difficulty": 2,
+    "tags": ["percentages", "basic_calculation", "word_problems"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "table_based",
+    "stimulus": "The table shows agricultural land usage in three regions during a recent year.\n\nAgricultural Land Use (in thousand hectares)\nRegion | Cropland | Pasture Land\nNorth Region | 2,455 | 8,920\nSouth Region | 6,230 | 12,450\nEast Region | 4,118 | 7,532",
+    "questionText": "What is the total agricultural land (cropland and pasture combined) across all three regions?",
+    "options": [
+      {
+        "id": "A",
+        "text": "30,685 thousand hectares"
+      },
+      {
+        "id": "B",
+        "text": "36,185 thousand hectares"
+      },
+      {
+        "id": "C",
+        "text": "41,705 thousand hectares"
+      },
+      {
+        "id": "D",
+        "text": "45,285 thousand hectares"
+      },
+      {
+        "id": "E",
+        "text": "48,905 thousand hectares"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Total cropland = 2,455 + 6,230 + 4,118 = 12,803. Total pasture = 8,920 + 12,450 + 7,532 = 28,902. Combined total = 12,803 + 28,902 = 41,705 thousand hectares.",
+    "difficulty": 2,
+    "tags": ["addition", "table_interpretation", "basic_calculation"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "complex_table_based",
+    "stimulus": "The city library runs a weekly book-raffle to fund children's reading programmes. Each ticket costs £1.\n\nRevenue split:\n• 50% → prizes\n• 20% → running costs\n• 30% → reading programmes\n\nThe city has four neighbourhoods:\nNeighbourhood | Adult population (thousands) | Adult weekly participation rate (% buying ≥1 ticket) | Average weekly spend per participating adult (£)\nOakwood | 12 | 55% | £6\nLakeside | 8 | 65% | £9\nDowntown | 18 | 45% | £5\nHilltop | 14 | 35% | £4",
+    "questionText": "How much do Lakeside's ticket sales contribute to the reading programmes in one year?",
+    "options": [
+      {
+        "id": "A",
+        "text": "£364,000"
+      },
+      {
+        "id": "B",
+        "text": "£468,000"
+      },
+      {
+        "id": "C",
+        "text": "£522,000"
+      },
+      {
+        "id": "D",
+        "text": "£730,000"
+      },
+      {
+        "id": "E",
+        "text": "£936,000"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "1. Lakeside participants = 65% × 8,000 = 5,200 adults. 2. Weekly sales = 5,200 × £9 = £46,800. 3. Library keeps 30% → £46,800 × 0.30 = £14,040. 4. Annual (52 weeks) = £14,040 × 52 ≈ £730,080 → £730,000 (nearest £1,000).",
+    "difficulty": 4,
+    "tags": ["complex_table", "percentages", "multi_step_calculation", "annual_calculation"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "complex_table_based",
+    "stimulus": "The city library runs a weekly book-raffle to fund children's reading programmes. Each ticket costs £1.\n\nRevenue split:\n• 50% → prizes\n• 20% → running costs\n• 30% → reading programmes\n\nThe city has four neighbourhoods:\nNeighbourhood | Adult population (thousands) | Adult weekly participation rate (% buying ≥1 ticket) | Average weekly spend per participating adult (£)\nOakwood | 12 | 55% | £6\nLakeside | 8 | 65% | £9\nDowntown | 18 | 45% | £5\nHilltop | 14 | 35% | £4",
+    "questionText": "Each week 10,000 extra tickets are bought online by ex-residents. What percentage of total weekly ticket sales comes from Oakwood, to 1 decimal place?",
+    "options": [
+      {
+        "id": "A",
+        "text": "19.6%"
+      },
+      {
+        "id": "B",
+        "text": "22.0%"
+      },
+      {
+        "id": "C",
+        "text": "23.8%"
+      },
+      {
+        "id": "D",
+        "text": "27.9%"
+      },
+      {
+        "id": "E",
+        "text": "31.7%"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "1. Oakwood participants = 55% × 12,000 = 6,600. 2. Oakwood sales = 6,600 × £6 = £39,600. 3. City sales (table) = £39,600 + £46,800 + £40,500 + £19,600 = £146,500. 4. Add external: £146,500 + (10,000 × £1) = £166,500. 5. Share = £39,600 / £166,500 × 100 ≈ 23.8%.",
+    "difficulty": 4,
+    "tags": ["complex_table", "percentages", "decimal_places", "additional_data"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "complex_table_based",
+    "stimulus": "The city library runs a weekly book-raffle to fund children's reading programmes. Each ticket costs £1.\n\nThe city has four neighbourhoods:\nNeighbourhood | Adult population (thousands) | Adult weekly participation rate (% buying ≥1 ticket) | Average weekly spend per participating adult (£)\nOakwood | 12 | 55% | £6\nLakeside | 8 | 65% | £9\nDowntown | 18 | 45% | £5\nHilltop | 14 | 35% | £4",
+    "questionText": "Approximately how many adults from the city buy at least one ticket each week?",
+    "options": [
+      {
+        "id": "A",
+        "text": "24,800"
+      },
+      {
+        "id": "B",
+        "text": "25,800"
+      },
+      {
+        "id": "C",
+        "text": "26,600"
+      },
+      {
+        "id": "D",
+        "text": "27,600"
+      },
+      {
+        "id": "E",
+        "text": "28,800"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Participants = Oakwood: 12,000 × 55% = 6,600 + Lakeside: 8,000 × 65% = 5,200 + Downtown: 18,000 × 45% = 8,100 + Hilltop: 14,000 × 35% = 4,900. Total = 24,800 adults.",
+    "difficulty": 3,
+    "tags": ["complex_table", "percentages", "addition", "approximation"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "complex_table_based",
+    "stimulus": "The city library runs a weekly book-raffle to fund children's reading programmes.\n\nThe city has four neighbourhoods:\nNeighbourhood | Adult population (thousands) | Adult weekly participation rate (% buying ≥1 ticket) | Average weekly spend per participating adult (£)\nOakwood | 12 | 55% | £6\nLakeside | 8 | 65% | £9\nDowntown | 18 | 45% | £5\nHilltop | 14 | 35% | £4",
+    "questionText": "By how many people does the number of ticket-buyers in Downtown exceed that in Hilltop each week?",
+    "options": [
+      {
+        "id": "A",
+        "text": "2,200"
+      },
+      {
+        "id": "B",
+        "text": "2,600"
+      },
+      {
+        "id": "C",
+        "text": "3,200"
+      },
+      {
+        "id": "D",
+        "text": "3,600"
+      },
+      {
+        "id": "E",
+        "text": "4,200"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Downtown buyers = 18,000 × 45% = 8,100. Hilltop buyers = 14,000 × 35% = 4,900. Difference = 8,100 – 4,900 = 3,200.",
+    "difficulty": 3,
+    "tags": ["complex_table", "percentages", "subtraction", "comparison"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "table_based",
+    "stimulus": "Paintball Pricing\n\nNumber of Rounds | Regular Price per Person (£) | Member Discount per Person\n1 | 9 | 10%\n2 | 14 | 20%\n3 | 17 | 35%\n\n• Each round lasts 12 minutes. During a continuous session, there is a 15-minute break between rounds.\n• The entire arena can be booked for a private 3-round event at £20 per person (minimum 10 people).",
+    "questionText": "Two friends spent £34 in total at the regular price. What was the shortest possible time they spent playing, including breaks?",
+    "options": [
+      {
+        "id": "A",
+        "text": "54 minutes"
+      },
+      {
+        "id": "B",
+        "text": "1 hour 6 minutes"
+      },
+      {
+        "id": "C",
+        "text": "1 hour 21 minutes"
+      },
+      {
+        "id": "D",
+        "text": "1 hour 36 minutes"
+      },
+      {
+        "id": "E",
+        "text": "1 hour 51 minutes"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Cost per person = £34 ÷ 2 = £17 → 3-round ticket. Duration = 3×12 min + 2×15 min = 36 + 30 = 66 min → 1 h 6 min.",
+    "difficulty": 3,
+    "tags": ["table_interpretation", "time_calculation", "division", "addition"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "table_based",
+    "stimulus": "Paintball Pricing\n\nNumber of Rounds | Regular Price per Person (£) | Member Discount per Person\n1 | 9 | 10%\n2 | 14 | 20%\n3 | 17 | 35%\n\n• The entire arena can be booked for a private 3-round event at £20 per person (minimum 10 people).",
+    "questionText": "A company books a private 3-round event for 15 players. The arena gives a 10% discount on the entire bill. How much do they pay?",
+    "options": [
+      {
+        "id": "A",
+        "text": "£270"
+      },
+      {
+        "id": "B",
+        "text": "£300"
+      },
+      {
+        "id": "C",
+        "text": "£315"
+      },
+      {
+        "id": "D",
+        "text": "£270"
+      },
+      {
+        "id": "E",
+        "text": "£330"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Base cost = 15 × £20 = £300. 10% off ⇒ £300 – £30 = £270.",
+    "difficulty": 2,
+    "tags": ["table_interpretation", "percentages", "multiplication", "subtraction"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "table_based",
+    "stimulus": "Paintball Pricing\n\nNumber of Rounds | Regular Price per Person (£) | Member Discount per Person\n1 | 9 | 10%\n2 | 14 | 20%\n3 | 17 | 35%",
+    "questionText": "How much cheaper is it for 8 members to play a 2-round session compared with 8 non-members?",
+    "options": [
+      {
+        "id": "A",
+        "text": "£11.20"
+      },
+      {
+        "id": "B",
+        "text": "£16.80"
+      },
+      {
+        "id": "C",
+        "text": "£19.20"
+      },
+      {
+        "id": "D",
+        "text": "£22.40"
+      },
+      {
+        "id": "E",
+        "text": "£28.00"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Regular 2-round price = £14; member discount = 20%. Saving per person = 0.20 × £14 = £2.80. Total saving = 8 × £2.80 = £22.40.",
+    "difficulty": 3,
+    "tags": ["table_interpretation", "percentages", "multiplication", "comparison"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "table_based",
+    "stimulus": "Paintball Pricing\n\nNumber of Rounds | Regular Price per Person (£) | Member Discount per Person\n1 | 9 | 10%\n2 | 14 | 20%\n3 | 17 | 35%",
+    "questionText": "A family of 5 (with 2 members eligible for the discount) plans to play 3 rounds. How much will they pay altogether?",
+    "options": [
+      {
+        "id": "A",
+        "text": "£68.00"
+      },
+      {
+        "id": "B",
+        "text": "£71.00"
+      },
+      {
+        "id": "C",
+        "text": "£72.10"
+      },
+      {
+        "id": "D",
+        "text": "£74.00"
+      },
+      {
+        "id": "E",
+        "text": "£85.00"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Regular price per person (3 rounds) = £17. Members pay 35% less ⇒ £17 – 0.35×17 = £17 – £5.95 = £11.05 each. Cost = 3 non-members × £17 = £51.00 + 2 members × £11.05 = £22.10 → £72.10.",
+    "difficulty": 4,
+    "tags": ["table_interpretation", "percentages", "mixed_pricing", "addition"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "word_problem",
+    "stimulus": "The amount of water used for one spa soak fills a cuboid measuring 60 cm × 30 cm × 100 cm.",
+    "questionText": "The volume of water used in one spa soak is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "18 litres"
+      },
+      {
+        "id": "B",
+        "text": "180 litres"
+      },
+      {
+        "id": "C",
+        "text": "1,800 litres"
+      },
+      {
+        "id": "D",
+        "text": "18,000 litres"
+      },
+      {
+        "id": "E",
+        "text": "180,000 litres"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Volume = 60 × 30 × 100 = 180,000 cm³; ÷1,000 = 180 L.",
+    "difficulty": 2,
+    "tags": ["geometry", "volume", "unit_conversion"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "word_problem",
+    "stimulus": "Tap water enters the house at 15°C. It takes 4,200 J of energy to raise the temperature of 1 litre of water by 1°C.",
+    "questionText": "How much energy, in joules, is needed to heat 8 litres of water from 15°C to 45°C?",
+    "options": [
+      {
+        "id": "A",
+        "text": "201,600 J"
+      },
+      {
+        "id": "B",
+        "text": "504,000 J"
+      },
+      {
+        "id": "C",
+        "text": "1,008,000 J"
+      },
+      {
+        "id": "D",
+        "text": "1,680,000 J"
+      },
+      {
+        "id": "E",
+        "text": "2,016,000 J"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "ΔT = 45 − 15 = 30°C. E = 4,200 × 8 × 30 = 1,008,000 J.",
+    "difficulty": 3,
+    "tags": ["physics", "energy_calculation", "temperature", "multiplication"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "word_problem",
+    "stimulus": "It takes 4,200 J of energy to raise the temperature of 1 litre of water by 1°C. Because a joule is small, domestic meters record energy in kilowatt-hours (kWh), where 1 kWh = 3.6 million J.",
+    "questionText": "How much energy, in kWh, does it take to raise 1 litre of water from 15°C to 95°C in an electric kettle? (Give your answer to 3 dp.)",
+    "options": [
+      {
+        "id": "A",
+        "text": "0.083 kWh"
+      },
+      {
+        "id": "B",
+        "text": "0.093 kWh"
+      },
+      {
+        "id": "C",
+        "text": "0.117 kWh"
+      },
+      {
+        "id": "D",
+        "text": "0.333 kWh"
+      },
+      {
+        "id": "E",
+        "text": "1.167 kWh"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "ΔT = 95 − 15 = 80°C. Joules = 4,200 × 1 × 80 = 336,000 J. kWh = 336,000 ÷ 3,600,000 ≈ 0.093 kWh.",
+    "difficulty": 4,
+    "tags": ["physics", "energy_calculation", "unit_conversion", "decimal_places"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "complex_word_problem",
+    "stimulus": "Tap water enters the house at 15°C. It takes 4,200 J of energy to raise the temperature of 1 litre of water by 1°C. The amount of water used for one spa soak fills a cuboid measuring 60 cm × 30 cm × 100 cm (180 L). Spa-goers prefer the water at 45°C.",
+    "questionText": "A spa-lover swaps their nightly soak (180 L at 45°C) for a quick shower (35 L at 38°C). How much energy, in joules, do they save per week (7 days)?",
+    "options": [
+      {
+        "id": "A",
+        "text": "5,145,000 J"
+      },
+      {
+        "id": "B",
+        "text": "12,555,000 J"
+      },
+      {
+        "id": "C",
+        "text": "19,299,000 J"
+      },
+      {
+        "id": "D",
+        "text": "135,093,000 J"
+      },
+      {
+        "id": "E",
+        "text": "162,360,000 J"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "1. Soak: ΔT = 30°C → E₁ = 4,200 × 180 × 30 = 22,680,000 J. 2. Shower: ΔT = 38 − 15 = 23°C → E₂ = 4,200 × 35 × 23 = 3,381,000 J. 3. Daily saving: 22,680,000 − 3,381,000 = 19,299,000 J. 4. Weekly saving: 19,299,000 × 7 ≈ 135,093,000 J.",
+    "difficulty": 5,
+    "tags": ["physics", "energy_calculation", "comparison", "weekly_calculation"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "astronomy_table_based",
+    "stimulus": "Planet | Minimum distance from Sun (km) | Maximum distance from Sun (km) | Orbital period (Earth days) | Rotational period (Earth days)\nJupiter | 741 million | 817 million | 4,333 | 0.41\nSaturn | 1,353 million | 1,514 million | 10,760 | 0.44\nUranus | 2,742 million | 3,003 million | 30,681 | 0.72\nNeptune | 4,450 million | 4,540 million | 60,190 | 0.67",
+    "questionText": "How many Jupiter days are there in one Jupiter year? (Give your answer to the nearest hundred.)",
+    "options": [
+      {
+        "id": "A",
+        "text": "1,060"
+      },
+      {
+        "id": "B",
+        "text": "4,300"
+      },
+      {
+        "id": "C",
+        "text": "10,600"
+      },
+      {
+        "id": "D",
+        "text": "26,500"
+      },
+      {
+        "id": "E",
+        "text": "105,900"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Jupiter's year = 4,333 Earth days. Jupiter's day = 0.41 Earth days. No. of Jupiter days in a Jupiter year = 4,333 ÷ 0.41 ≈ 10,570 → ≈ 10,600 (nearest 100).",
+    "difficulty": 3,
+    "tags": ["astronomy", "division", "rounding", "table_interpretation"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "astronomy_table_based",
+    "stimulus": "Planet | Orbital period (Earth days) | Rotational period (Earth days)\nJupiter | 4,333 | 0.41\nNeptune | 60,190 | 0.67",
+    "questionText": "How many times does Jupiter complete its orbit during one Neptune year? (Give your answer to 1 decimal place.)",
+    "options": [
+      {
+        "id": "A",
+        "text": "1.4"
+      },
+      {
+        "id": "B",
+        "text": "6.1"
+      },
+      {
+        "id": "C",
+        "text": "13.9"
+      },
+      {
+        "id": "D",
+        "text": "60.2"
+      },
+      {
+        "id": "E",
+        "text": "139"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Neptune's year = 60,190 days. Jupiter's year = 4,333 days. Orbits in one Neptune year = 60,190 ÷ 4,333 ≈ 13.9.",
+    "difficulty": 3,
+    "tags": ["astronomy", "division", "decimal_places", "table_interpretation"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "astronomy_table_based",
+    "stimulus": "Planet | Minimum distance from Sun (km) | Maximum distance from Sun (km)\nJupiter | 741 million | 817 million\nSaturn | 1,353 million | 1,514 million\n\n(Assume all orbits lie in the same plane.)",
+    "questionText": "What is the minimum possible distance between Jupiter and Saturn in km?",
+    "options": [
+      {
+        "id": "A",
+        "text": "43 million"
+      },
+      {
+        "id": "B",
+        "text": "212 million"
+      },
+      {
+        "id": "C",
+        "text": "536 million"
+      },
+      {
+        "id": "D",
+        "text": "742 million"
+      },
+      {
+        "id": "E",
+        "text": "2,097 million"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "The minimum separation occurs when Jupiter is at aphelion (817 million km) and Saturn is at perihelion (1,353 million km). Difference = 1,353 million − 817 million = 536 million km.",
+    "difficulty": 4,
+    "tags": ["astronomy", "subtraction", "orbital_mechanics", "minimum_distance"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "astronomy_table_based",
+    "stimulus": "Planet | Rotational period (Earth days)\nSaturn | 0.44",
+    "questionText": "How many Saturn days occur during one Earth year? (Nearest whole number.)",
+    "options": [
+      {
+        "id": "A",
+        "text": "67"
+      },
+      {
+        "id": "B",
+        "text": "365"
+      },
+      {
+        "id": "C",
+        "text": "730"
+      },
+      {
+        "id": "D",
+        "text": "830"
+      },
+      {
+        "id": "E",
+        "text": "1,660"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Saturn day = 0.44 Earth days. Saturn days per Earth year = 365 ÷ 0.44 ≈ 830.",
+    "difficulty": 3,
+    "tags": ["astronomy", "division", "rounding", "time_conversion"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "statistics_based",
+    "stimulus": "Song Duration Data (in seconds):\nSong 1 | Song 2 | Song 3 | Song 4 | Song 5\nPriya's favourites: 240 | 255 | 275 | 235 | 220\nJacob's favourites: 260 | 195 | 245 | 225 | 215\n\n(Assume no gaps or overlaps when songs are played back-to-back.)",
+    "questionText": "If Jacob adds the duration of his sixth favourite song and the mean duration of his favourites rises by 2 seconds, what is the duration of the sixth song?",
+    "options": [
+      {
+        "id": "A",
+        "text": "233 s"
+      },
+      {
+        "id": "B",
+        "text": "235 s"
+      },
+      {
+        "id": "C",
+        "text": "240 s"
+      },
+      {
+        "id": "D",
+        "text": "249 s"
+      },
+      {
+        "id": "E",
+        "text": "257 s"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "1. Current total for 5 songs = 260 + 195 + 245 + 225 + 215 = 1,140 s. Current mean = 1,140 ÷ 5 = 228 s. 2. New mean = 228 + 2 = 230 s for 6 songs. 3. Required new total = 6 × 230 = 1,380 s. 4. Sixth song = 1,380 − 1,140 = 240 s.",
+    "difficulty": 4,
+    "tags": ["statistics", "mean", "reverse_calculation", "addition"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "statistics_based",
+    "stimulus": "Song Duration Data (in seconds):\nPriya's favourites: 240, 255, 275, 235, 220\nJacob's favourites: 260, 195, 245, 225, 215",
+    "questionText": "What is the difference in the medians of Priya's and Jacob's five current favourite songs?",
+    "options": [
+      {
+        "id": "A",
+        "text": "5 s"
+      },
+      {
+        "id": "B",
+        "text": "10 s"
+      },
+      {
+        "id": "C",
+        "text": "15 s"
+      },
+      {
+        "id": "D",
+        "text": "20 s"
+      },
+      {
+        "id": "E",
+        "text": "25 s"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Priya: ordered = 220, 235, 240, 255, 275 → median = 240 s. Jacob: ordered = 195, 215, 225, 245, 260 → median = 225 s. Difference = 240 − 225 = 15 s.",
+    "difficulty": 3,
+    "tags": ["statistics", "median", "ordering", "subtraction"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "statistics_based",
+    "stimulus": "Priya's favourite song durations: 240, 255, 275, 235, 220 seconds",
+    "questionText": "What is the range of Priya's favourite-song durations?",
+    "options": [
+      {
+        "id": "A",
+        "text": "40 s"
+      },
+      {
+        "id": "B",
+        "text": "55 s"
+      },
+      {
+        "id": "C",
+        "text": "60 s"
+      },
+      {
+        "id": "D",
+        "text": "65 s"
+      },
+      {
+        "id": "E",
+        "text": "75 s"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Highest = 275 s, lowest = 220 s → range = 275 − 220 = 55 s.",
+    "difficulty": 2,
+    "tags": ["statistics", "range", "subtraction", "max_min"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "statistics_based",
+    "stimulus": "Jacob's five favourite songs have durations totaling 1,140 seconds. (Assume no gaps or overlaps when songs are played back-to-back.)",
+    "questionText": "What fraction of an hour is needed to play Jacob's five songs back-to-back (no breaks)?",
+    "options": [
+      {
+        "id": "A",
+        "text": "1/6"
+      },
+      {
+        "id": "B",
+        "text": "1/4"
+      },
+      {
+        "id": "C",
+        "text": "1/3"
+      },
+      {
+        "id": "D",
+        "text": "1/2"
+      },
+      {
+        "id": "E",
+        "text": "2/3"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "1. Total seconds = 1,140 s. 2. Convert to minutes = 1,140 ÷ 60 = 19 min. 3. Fraction of an hour = 19⁄60 ≈ 1⁄4 (closest simple fraction among the options).",
+    "difficulty": 3,
+    "tags": ["fractions", "time_conversion", "approximation", "division"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "production_table_based",
+    "stimulus": "Six equal-sized batches of frozen pies were produced; 48,000 pies in total.\n\nDefect type | Mean per batch\nBurnt | 10\nUndercooked | 3\nBroken Crust | 7\nOver-filled | 2\nMis-labelled | 5",
+    "questionText": "How many more burnt pies than mis-labelled pies were produced in the six batches combined?",
+    "options": [
+      {
+        "id": "A",
+        "text": "10"
+      },
+      {
+        "id": "B",
+        "text": "20"
+      },
+      {
+        "id": "C",
+        "text": "30"
+      },
+      {
+        "id": "D",
+        "text": "40"
+      },
+      {
+        "id": "E",
+        "text": "50"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Burnt total = 10 × 6 = 60. Mis-labelled total = 5 × 6 = 30. Difference = 60 − 30 = 30 pies.",
+    "difficulty": 2,
+    "tags": ["table_interpretation", "multiplication", "subtraction", "production_data"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "production_table_based",
+    "stimulus": "Six equal-sized batches of frozen pies were produced; 48,000 pies in total.\n\nDefect type | Mean per batch\nOver-filled | 2",
+    "questionText": "How many over-filled pies appear in every 4,000 pies produced?",
+    "options": [
+      {
+        "id": "A",
+        "text": "0"
+      },
+      {
+        "id": "B",
+        "text": "1"
+      },
+      {
+        "id": "C",
+        "text": "2"
+      },
+      {
+        "id": "D",
+        "text": "3"
+      },
+      {
+        "id": "E",
+        "text": "4"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Over-filled total = 2 × 6 = 12. Rate = 12 ⁄ 48,000 = 1 ⁄ 4,000. Therefore 1 over-filled pie per 4,000 pies.",
+    "difficulty": 3,
+    "tags": ["table_interpretation", "ratios", "proportion", "production_data"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "production_table_based",
+    "stimulus": "Six equal-sized batches of frozen pies were produced.\n\nDefect type | Mean per batch\nBroken Crust | 7",
+    "questionText": "Suppose zero broken-crust pies were recorded in five of the six batches. How many broken-crust pies must have been in the sixth batch to keep the overall mean shown?",
+    "options": [
+      {
+        "id": "A",
+        "text": "7"
+      },
+      {
+        "id": "B",
+        "text": "14"
+      },
+      {
+        "id": "C",
+        "text": "21"
+      },
+      {
+        "id": "D",
+        "text": "35"
+      },
+      {
+        "id": "E",
+        "text": "42"
+      }
+    ],
+    "correctAnswer": "E",
+    "explanation": "Mean per batch = 7 ⇒ Total over 6 batches = 7 × 6 = 42. If five batches have 0, the sixth must contain 42 pies.",
+    "difficulty": 3,
+    "tags": ["table_interpretation", "mean", "multiplication", "distribution"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "production_table_based",
+    "stimulus": "Six equal-sized batches of frozen pies were produced; 48,000 pies in total.\n\nDefect type | Mean per batch\nBurnt | 10",
+    "questionText": "What percentage of all pies produced were burnt? (Choose the closest option.)",
+    "options": [
+      {
+        "id": "A",
+        "text": "0.03%"
+      },
+      {
+        "id": "B",
+        "text": "0.05%"
+      },
+      {
+        "id": "C",
+        "text": "0.10%"
+      },
+      {
+        "id": "D",
+        "text": "0.13%"
+      },
+      {
+        "id": "E",
+        "text": "0.15%"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Burnt total = 10 × 6 = 60 pies. Percentage = (60 ⁄ 48,000) × 100 = 0.125% ≈ 0.13%.",
+    "difficulty": 3,
+    "tags": ["table_interpretation", "percentages", "approximation", "production_data"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "irrigation_table_based",
+    "stimulus": "A fruit-grower irrigates a large rectangular orchard using four identical sprinklers, one fixed at each corner.\n\nConfiguration and performance of each sprinkler:\n• Rotates horizontally through 90° (so each covers a quarter-circle sector)\n• Delivers 18 L of water every 18 s (i.e. 60 L min⁻¹)\n• The nozzle elevation can be set between 0° and 7°; higher angles project water further\n\nElevation (°) | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7\nRange (m) | 30 | 50 | 80 | 95 | 110 | 120 | 130 | 140\n\nTake π = 3.14 for any area calculations.",
+    "questionText": "If all four sprinklers run continuously for one hour, how much water (to the nearest litre) is applied?",
+    "options": [
+      {
+        "id": "A",
+        "text": "9,000 L"
+      },
+      {
+        "id": "B",
+        "text": "10,800 L"
+      },
+      {
+        "id": "C",
+        "text": "14,400 L"
+      },
+      {
+        "id": "D",
+        "text": "18,000 L"
+      },
+      {
+        "id": "E",
+        "text": "21,600 L"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Flow from one sprinkler = 60 L min⁻¹. Four sprinklers = 4 × 60 = 240 L min⁻¹. One hour = 60 min → 240 × 60 = 14,400 L.",
+    "difficulty": 2,
+    "tags": ["table_interpretation", "flow_rate", "time_calculation", "multiplication"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "irrigation_table_based",
+    "stimulus": "Elevation (°) | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7\nRange (m) | 30 | 50 | 80 | 95 | 110 | 120 | 130 | 140",
+    "questionText": "Using the table, which elevation produces a range closest to the mean of all eight listed ranges?",
+    "options": [
+      {
+        "id": "A",
+        "text": "2°"
+      },
+      {
+        "id": "B",
+        "text": "3°"
+      },
+      {
+        "id": "C",
+        "text": "4°"
+      },
+      {
+        "id": "D",
+        "text": "5°"
+      },
+      {
+        "id": "E",
+        "text": "6°"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Sum of ranges = 30 + 50 + 80 + 95 + 110 + 120 + 130 + 140 = 755 m. Mean = 755 ÷ 8 ≈ 94 m. The range of 95 m (elevation 3°) is the nearest.",
+    "difficulty": 3,
+    "tags": ["table_interpretation", "mean", "comparison", "closest_value"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "irrigation_geometry_based",
+    "stimulus": "A sprinkler rotates horizontally through 90° (covering a quarter-circle sector). Take π = 3.14.\n\nElevation (°) | 3 | 7\nRange (m) | 95 | 140",
+    "questionText": "Assuming the orchard is large enough, approximately how much extra ground (m²) does one sprinkler water when its elevation is increased from 3° to 7°?",
+    "options": [
+      {
+        "id": "A",
+        "text": "2,600"
+      },
+      {
+        "id": "B",
+        "text": "5,800"
+      },
+      {
+        "id": "C",
+        "text": "8,300"
+      },
+      {
+        "id": "D",
+        "text": "10,900"
+      },
+      {
+        "id": "E",
+        "text": "16,400"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Radius at 3° = 95 m → area₃ = (π × 95²) ÷ 4 ≈ 3.14 × 9,025 ÷ 4 ≈ 7,080 m². Radius at 7° = 140 m → area₇ = (π × 140²) ÷ 4 ≈ 3.14 × 19,600 ÷ 4 ≈ 15,380 m². Extra area ≈ 15,380 – 7,080 ≈ 8,300 m².",
+    "difficulty": 4,
+    "tags": ["geometry", "area_calculation", "quarter_circle", "subtraction"],
+    "isActive": true
+  },
+  {
+    "section": "quantitative_reasoning",
+    "questionType": "irrigation_geometry_based",
+    "stimulus": "Four identical sprinklers are fixed at each corner of a square plot. Each sprinkler rotates horizontally through 90° and has a range of 50 m. Take π = 3.14.",
+    "questionText": "The grower fences off a square plot 90 m × 90 m for young trees. If all four sprinklers are set to elevation 1° (range 50 m), and each still rotates 90°, what area of the square (to the nearest 10 m²) will remain dry?",
+    "options": [
+      {
+        "id": "A",
+        "text": "250 m²"
+      },
+      {
+        "id": "B",
+        "text": "260 m²"
+      },
+      {
+        "id": "C",
+        "text": "520 m²"
+      },
+      {
+        "id": "D",
+        "text": "1,320 m²"
+      },
+      {
+        "id": "E",
+        "text": "5,020 m²"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Each sprinkler covers a quarter-circle of radius 50 m; four together cover a full circle of radius 50 m (centre in the middle of the square). Circle area = π × 50² ≈ 3.14 × 2,500 = 7,850 m². Square area = 90 × 90 = 8,100 m². Unwatered area ≈ 8,100 – 7,850 = 250 m², nearest option 260 m².",
+    "difficulty": 4,
+    "tags": ["geometry", "area_calculation", "circle", "square", "subtraction"],
+    "isActive": true
   }
 ]
