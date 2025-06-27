@@ -1229,7 +1229,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "All universities provide Library Access to the students of university X; university B provides Library Access to the students of only two universities; university A provides Library Access to the students of university B and vice versa.",
     "questionText": "All registered students receive Library Access in university B.",
     "options": [
@@ -1250,7 +1250,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "All universities provide Library Access to the students of university X; university B provides Library Access to the students of only two universities; university A provides Library Access to the students of university B and vice versa.",
     "questionText": "A student received Library Access in university C so he must be a student of university X.",
     "options": [
@@ -1271,7 +1271,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "All universities provide Library Access to the students of university X; university B provides Library Access to the students of only two universities; university A provides Library Access to the students of university B and vice versa.",
     "questionText": "University B students are eligible for Library Access in university X.",
     "options": [
@@ -1292,7 +1292,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "All universities provide Library Access to the students of university X; university B provides Library Access to the students of only two universities; university A provides Library Access to the students of university B and vice versa.",
     "questionText": "Students of university X are eligible to receive Library Access from every other university.",
     "options": [
@@ -1313,7 +1313,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "All universities provide Library Access to the students of university X; university B provides Library Access to the students of only two universities; university A provides Library Access to the students of university B and vice versa.",
     "questionText": "Maria received Library Access in university B so she must be a student of either university X or university A.",
     "options": [
@@ -1334,7 +1334,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "At the board meeting there was one proposal, to approve a merger with another company. Any proposal that the board approved would need to be ratified by shareholders.",
     "questionText": "The board was left with a single option.",
     "options": [
@@ -1355,7 +1355,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "At the board meeting there was one proposal, to approve a merger with another company. Any proposal that the board approved would need to be ratified by shareholders.",
     "questionText": "There were no proposals before the board.",
     "options": [
@@ -1376,7 +1376,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "At the board meeting there was one proposal, to approve a merger with another company. Any proposal that the board approved would need to be ratified by shareholders.",
     "questionText": "It was not a proposal to approve a merger.",
     "options": [
@@ -1397,7 +1397,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "At the board meeting there was one proposal, to approve a merger with another company. Any proposal that the board approved would need to be ratified by shareholders.",
     "questionText": "The approval for a merger needs to be ratified by shareholders.",
     "options": [
@@ -1418,7 +1418,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "At the board meeting there was one proposal, to approve a merger with another company. Any proposal that the board approved would need to be ratified by shareholders.",
     "questionText": "Some proposals that the board approved need to be ratified by the shareholders.",
     "options": [
@@ -1439,7 +1439,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "Any pasta that Luigi makes is either vegetarian or non-vegetarian and is made from either wheat flour or rice flour. None of the vegetarian pastas contain meat sauce. Only the meat sauce pastas are made with wheat flour.",
     "questionText": "Luigi makes meat sauce pastas with rice flour.",
     "options": [
@@ -1460,7 +1460,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "Any pasta that Luigi makes is either vegetarian or non-vegetarian and is made from either wheat flour or rice flour. None of the vegetarian pastas contain meat sauce. Only the meat sauce pastas are made with wheat flour.",
     "questionText": "If a pasta is non-vegetarian, it cannot be a meat sauce pasta.",
     "options": [
@@ -1502,7 +1502,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "Any pasta that Luigi makes is either vegetarian or non-vegetarian and is made from either wheat flour or rice flour. None of the vegetarian pastas contain meat sauce. Only the meat sauce pastas are made with wheat flour.",
     "questionText": "Luigi makes non-vegetarian pastas with wheat flour.",
     "options": [
@@ -1523,7 +1523,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "Any pasta that Luigi makes is either vegetarian or non-vegetarian and is made from either wheat flour or rice flour. None of the vegetarian pastas contain meat sauce. Only the meat sauce pastas are made with wheat flour.",
     "questionText": "If a pasta is made with rice flour, it cannot be a meat sauce pasta.",
     "options": [
@@ -1544,7 +1544,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "The 30 employees consisted of the same number of engineers, marketers and analysts. There were more marketers who could also code than analysts who could also market, but no engineers could market or code and none of the employees could do all three skills.",
     "questionText": "The total number of employees who could market was greater than the total number of employees who could engineer.",
     "options": [
@@ -1565,7 +1565,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "The 30 employees consisted of the same number of engineers, marketers and analysts. There were more marketers who could also code than analysts who could also market, but no engineers could market or code and none of the employees could do all three skills.",
     "questionText": "There were more engineers who could not market than analysts who could market.",
     "options": [
@@ -1586,7 +1586,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "The 30 employees consisted of the same number of engineers, marketers and analysts. There were more marketers who could also code than analysts who could also market, but no engineers could market or code and none of the employees could do all three skills.",
     "questionText": "There were more employees who could do two skills than employees who could only do one skill.",
     "options": [
@@ -1607,7 +1607,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "The 30 employees consisted of the same number of engineers, marketers and analysts. There were more marketers who could also code than analysts who could also market, but no engineers could market or code and none of the employees could do all three skills.",
     "questionText": "If half of the engineers were replaced by marketers who could code then at least half of the employees would be able to code.",
     "options": [
@@ -1628,7 +1628,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "The 30 employees consisted of the same number of engineers, marketers and analysts. There were more marketers who could also code than analysts who could also market, but no engineers could market or code and none of the employees could do all three skills.",
     "questionText": "None of the engineers in the group are as versatile as those marketers and analysts who have two skills.",
     "options": [
@@ -1670,7 +1670,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "All trucks are heavy. All sedans are light. This vehicle is either a sedan or a truck.",
     "questionText": "This vehicle is either light or a truck.",
     "options": [
@@ -1691,7 +1691,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "All trucks are heavy. All sedans are light. This vehicle is either a sedan or a truck.",
     "questionText": "If not a truck this vehicle is a light sedan.",
     "options": [
@@ -1712,7 +1712,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "All trucks are heavy. All sedans are light. This vehicle is either a sedan or a truck.",
     "questionText": "This vehicle is either heavy or a sedan.",
     "options": [
@@ -1733,7 +1733,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "All trucks are heavy. All sedans are light. This vehicle is either a sedan or a truck.",
     "questionText": "This vehicle is neither heavy nor light.",
     "options": [
@@ -1754,7 +1754,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "Of the attendees present at the conference this year, none were students working in the finance sector.",
     "questionText": "Only non-student attendees were present at the conference.",
     "options": [
@@ -1775,7 +1775,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "Of the attendees present at the conference this year, none were students working in the finance sector.",
     "questionText": "Very few student attendees were present at the conference.",
     "options": [
@@ -1796,7 +1796,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "Of the attendees present at the conference this year, none were students working in the finance sector.",
     "questionText": "No attendee at the conference who works in the finance sector was a student.",
     "options": [
@@ -1817,7 +1817,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "Of the attendees present at the conference this year, none were students working in the finance sector.",
     "questionText": "All the non-student attendees at the conference work in the finance sector.",
     "options": [
@@ -1838,7 +1838,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "logic_deduction",
+    "questionType": "syllogisms",
     "passage": "Of the attendees present at the conference this year, none were students working in the finance sector.",
     "questionText": "The attendees at the conference who work in the finance sector were professionals.",
     "options": [
@@ -1859,7 +1859,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "spatial_reasoning",
+    "questionType": "logic_puzzles",
     "passage": "Five friends are comparing their running speeds during a fitness test. Marcus is slower than Priya. Chen is slower than Rosa. Aisha is faster than Rosa but slower than Marcus. Rosa is slower than Marcus and Priya.",
     "questionText": "Who are the fastest and slowest runners in the group?",
     "options": [
@@ -1888,7 +1888,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "spatial_reasoning",
+    "questionType": "logic_puzzles",
     "passage": "Northville and Eastport are each 8 miles from my office but Northville is only 10 miles from Eastport on the highway. Riverside is four miles from my office on the road I use to get to Eastport.",
     "questionText": "Which of the following MUST be true?",
     "options": [
@@ -1917,7 +1917,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "logic_puzzles",
     "passage": "A company will hold an inter-department competition. Each department chooses two men and two women from volunteers. Test scores determine selection.",
     "questionText": "Which of the volunteers will be unsuccessful based on the test scores?",
     "questionImage": "department_volunteer_table",
@@ -1947,7 +1947,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "pattern_recognition",
+    "questionType": "logic_puzzles",
     "passage": "◆ = ★ + ▲, ★ + ▲ = ● + ●, ● = ▲ + ▲ + ▲",
     "questionText": "★ + ★ = ● + ● + ● + ?",
     "options": [
@@ -1976,7 +1976,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "spatial_reasoning",
+    "questionType": "logic_puzzles",
     "passage": "Eight offices on a floor, each with 1-4 workstations. Four companies each own two offices. Tech Corp's offices are in same vertical column but don't share a wall. One of Finance Pro or Design Inc has same number of workstations in both offices. Marketing Plus's offices share a dividing wall. Neither Marketing Plus nor Design Inc have 4-workstation offices.",
     "questionText": "The 2-workstation offices belong to which owners?",
     "options": [
@@ -2005,7 +2005,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "spatial_reasoning",
+    "questionType": "logic_puzzles",
     "passage": "The four shapes on the garden plot grid represent tomato plant, carrot patch, lettuce bed and herb garden. The tomato plant is closer to Emma than the lettuce bed. The tomato plant and carrot patch are on the same shaded plot. The circle represents neither the lettuce bed nor the herb garden. The carrot patch is on the right side when seen from Oliver's side.",
     "questionText": "Which garden plant is represented by the square shape?",
     "options": [
@@ -2150,7 +2150,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "One hundred tomato seedlings were assigned to each treatment. Results shown for survival percentage and height at 1 year and 1.5 years after transplant.",
     "questionText": "Both biocide treatment and compost application enhanced plant height.",
     "questionImage": "tomato_treatment_table",
@@ -2172,7 +2172,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "One hundred tomato seedlings were assigned to each treatment. Results shown for survival percentage and height at 1 year and 1.5 years after transplant.",
     "questionText": "More stem growth occurred between Year 1 and 1.5 years than during the first year, regardless of treatment.",
     "questionImage": "tomato_treatment_table",
@@ -2194,7 +2194,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "One hundred tomato seedlings were assigned to each treatment. Results shown for survival percentage and height at 1 year and 1.5 years after transplant.",
     "questionText": "Seedling survival peaked when both biocide and compost were applied.",
     "questionImage": "tomato_treatment_table",
@@ -2216,7 +2216,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "One hundred tomato seedlings were assigned to each treatment. Results shown for survival percentage and height at 1 year and 1.5 years after transplant.",
     "questionText": "The greatest height was recorded in seedlings that received biocide only.",
     "questionImage": "tomato_treatment_table",
@@ -2238,7 +2238,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "One hundred tomato seedlings were assigned to each treatment. Results shown for survival percentage and height at 1 year and 1.5 years after transplant.",
     "questionText": "Some seedlings in untreated soil died between Year 1 and 1.5 years after transplanting.",
     "questionImage": "tomato_treatment_table",
@@ -2260,7 +2260,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Early-years educators have re-introduced hand-weaving to help children combine play with fine-motor skills. Research found that weaving frames improve concentration and hand–eye coordination. A project resurrecting a weaving studio also boosted storytelling confidence.",
     "questionText": "Digital entertainment has rendered every traditional craft obsolete.",
     "options": [
@@ -2281,7 +2281,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Early-years educators have re-introduced hand-weaving to help children combine play with fine-motor skills. Research found that weaving frames improve concentration and hand–eye coordination. A project resurrecting a weaving studio also boosted storytelling confidence.",
     "questionText": "Hand-weaving benefits students of all ages, including high-schoolers.",
     "options": [
@@ -2302,7 +2302,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Early-years educators have re-introduced hand-weaving to help children combine play with fine-motor skills. Research found that weaving frames improve concentration and hand–eye coordination. A project resurrecting a weaving studio also boosted storytelling confidence.",
     "questionText": "Leading textile scholars have publicised the renewed importance of weaving.",
     "options": [
@@ -2323,7 +2323,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Early-years educators have re-introduced hand-weaving to help children combine play with fine-motor skills. Research found that weaving frames improve concentration and hand–eye coordination. A project resurrecting a weaving studio also boosted storytelling confidence.",
     "questionText": "Primary schools avoided weaving in the past because it seemed outdated.",
     "options": [
@@ -2344,7 +2344,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Early-years educators have re-introduced hand-weaving to help children combine play with fine-motor skills. Research found that weaving frames improve concentration and hand–eye coordination. A project resurrecting a weaving studio also boosted storytelling confidence.",
     "questionText": "Weaving activities help children who have begun formal schooling develop speaking skills.",
     "options": [
@@ -2365,7 +2365,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Researchers fitted audience members with wrist sensors during thriller movie screenings. Heart-rate peaks, perspiration and pupil size tended to synchronise, but blinking patterns did not. Viewers who scored high on openness to experience showed the strongest synchronisation.",
     "questionText": "Participants evaluated certain aspects of their own personalities.",
     "options": [
@@ -2386,7 +2386,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Researchers fitted audience members with wrist sensors during thriller movie screenings. Heart-rate peaks, perspiration and pupil size tended to synchronise, but blinking patterns did not. Viewers who scored high on openness to experience showed the strongest synchronisation.",
     "questionText": "Scientists could capture detailed physiological data during the screenings.",
     "options": [
@@ -2407,7 +2407,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Researchers fitted audience members with wrist sensors during thriller movie screenings. Heart-rate peaks, perspiration and pupil size tended to synchronise, but blinking patterns did not. Viewers who scored high on openness to experience showed the strongest synchronisation.",
     "questionText": "Audience members blinked in unison while watching the thriller.",
     "options": [
@@ -2428,7 +2428,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Researchers fitted audience members with wrist sensors during thriller movie screenings. Heart-rate peaks, perspiration and pupil size tended to synchronise, but blinking patterns did not. Viewers who scored high on openness to experience showed the strongest synchronisation.",
     "questionText": "The level of synchrony differed from one group of viewers to another.",
     "options": [
@@ -2449,7 +2449,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Researchers fitted audience members with wrist sensors during thriller movie screenings. Heart-rate peaks, perspiration and pupil size tended to synchronise, but blinking patterns did not. Viewers who scored high on openness to experience showed the strongest synchronisation.",
     "questionText": "Researchers proved a definite link between openness and attention-span.",
     "options": [
@@ -2470,7 +2470,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Health-conscious consumers are shifting to cold-steam therapy, which allows greater control over respiratory care. The method delivers cooled, vaporised saline into the airway as a gentle alternative. Among patients who dropped inhaled corticosteroids, cold-steam sessions led to improved lung capacity and reduced airway inflammation.",
     "questionText": "Knowledgeable people already accept responsibility for their own health.",
     "options": [
@@ -2491,7 +2491,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Health-conscious consumers are shifting to cold-steam therapy, which allows greater control over respiratory care. The method delivers cooled, vaporised saline into the airway as a gentle alternative. Among patients who dropped inhaled corticosteroids, cold-steam sessions led to improved lung capacity and reduced airway inflammation.",
     "questionText": "Cold-steam therapy employs several procedures, some of which are invasive.",
     "options": [
@@ -2512,7 +2512,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Health-conscious consumers are shifting to cold-steam therapy, which allows greater control over respiratory care. The method delivers cooled, vaporised saline into the airway as a gentle alternative. Among patients who dropped inhaled corticosteroids, cold-steam sessions led to improved lung capacity and reduced airway inflammation.",
     "questionText": "The passage shows that corticosteroids never enhance breathing strength.",
     "options": [
@@ -2533,7 +2533,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Health-conscious consumers are shifting to cold-steam therapy, which allows greater control over respiratory care. The method delivers cooled, vaporised saline into the airway as a gentle alternative. Among patients who dropped inhaled corticosteroids, cold-steam sessions led to improved lung capacity and reduced airway inflammation.",
     "questionText": "Alternative respiratory therapies can generate more than one health benefit.",
     "options": [
@@ -2554,7 +2554,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Health-conscious consumers are shifting to cold-steam therapy, which allows greater control over respiratory care. The method delivers cooled, vaporised saline into the airway as a gentle alternative. Among patients who dropped inhaled corticosteroids, cold-steam sessions led to improved lung capacity and reduced airway inflammation.",
     "questionText": "Simply discontinuing corticosteroids on its own improves lung function.",
     "options": [
@@ -2575,7 +2575,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Pectin, a soluble fibre found in apple peels and citrus rinds, forms a gel in the small intestine that reduces cholesterol absorption. To compensate, the body converts additional circulating cholesterol into bile acids that aid digestion—lowering total blood cholesterol beyond the initial drop.",
     "questionText": "Bile itself breaks cholesterol down inside the lower gut.",
     "options": [
@@ -2596,7 +2596,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Pectin, a soluble fibre found in apple peels and citrus rinds, forms a gel in the small intestine that reduces cholesterol absorption. To compensate, the body converts additional circulating cholesterol into bile acids that aid digestion—lowering total blood cholesterol beyond the initial drop.",
     "questionText": "A soluble dietary fibre can lower blood cholesterol through more than one mechanism.",
     "options": [
@@ -2617,7 +2617,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Pectin, a soluble fibre found in apple peels and citrus rinds, forms a gel in the small intestine that reduces cholesterol absorption. To compensate, the body converts additional circulating cholesterol into bile acids that aid digestion—lowering total blood cholesterol beyond the initial drop.",
     "questionText": "Pectin's cholesterol-lowering power depends on how it is administered.",
     "options": [
@@ -2638,7 +2638,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Pectin, a soluble fibre found in apple peels and citrus rinds, forms a gel in the small intestine that reduces cholesterol absorption. To compensate, the body converts additional circulating cholesterol into bile acids that aid digestion—lowering total blood cholesterol beyond the initial drop.",
     "questionText": "Cholesterol is necessary to maintain adequate bile-acid levels for digestion.",
     "options": [
@@ -2659,7 +2659,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "Pectin, a soluble fibre found in apple peels and citrus rinds, forms a gel in the small intestine that reduces cholesterol absorption. To compensate, the body converts additional circulating cholesterol into bile acids that aid digestion—lowering total blood cholesterol beyond the initial drop.",
     "questionText": "Eating foods rich in pectin is linked to reduced cholesterol in the bloodstream.",
     "options": [
@@ -2680,7 +2680,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "A Belgian tech firm closed its software-support outsourcing arm after seven years of losses. The unit handled occasional requests from existing customers but attracted no new premium contracts. Within a year of shutting the department, the firm lost six of its eleven platinum clients and failed to gain any replacements.",
     "questionText": "Losing six platinum clients poses little risk to the company.",
     "options": [
@@ -2701,7 +2701,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "A Belgian tech firm closed its software-support outsourcing arm after seven years of losses. The unit handled occasional requests from existing customers but attracted no new premium contracts. Within a year of shutting the department, the firm lost six of its eleven platinum clients and failed to gain any replacements.",
     "questionText": "Other departments were busier than the software-support division.",
     "options": [
@@ -2722,7 +2722,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "A Belgian tech firm closed its software-support outsourcing arm after seven years of losses. The unit handled occasional requests from existing customers but attracted no new premium contracts. Within a year of shutting the department, the firm lost six of its eleven platinum clients and failed to gain any replacements.",
     "questionText": "Belgian firms generally prefer to outsource support rather than manage it in-house.",
     "options": [
@@ -2743,7 +2743,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "A Belgian tech firm closed its software-support outsourcing arm after seven years of losses. The unit handled occasional requests from existing customers but attracted no new premium contracts. Within a year of shutting the department, the firm lost six of its eleven platinum clients and failed to gain any replacements.",
     "questionText": "Despite its losses, the software-support unit had been a key part of the company's overall offer.",
     "options": [
@@ -2764,7 +2764,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "interpreting_information",
     "passage": "A Belgian tech firm closed its software-support outsourcing arm after seven years of losses. The unit handled occasional requests from existing customers but attracted no new premium contracts. Within a year of shutting the department, the firm lost six of its eleven platinum clients and failed to gain any replacements.",
     "questionText": "Large corporations usually want one provider for all technical services.",
     "options": [
@@ -2844,7 +2844,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "counting",
+    "questionType": "venn_diagram",
     "passage": "A fitness center offers three classes every Saturday. Last week, 45 members attended at least one class. 12 attended only yoga, 9 attended only spinning, 6 attended only yoga and pilates, 8 attended only pilates and spinning, and no members attended only yoga and spinning.",
     "questionText": "Based on the information, how many members attended the pilates class altogether?",
     "options": [
@@ -2960,7 +2960,7 @@
   },
   {
     "section": "decision_making",
-    "questionType": "data_interpretation",
+    "questionType": "probability",
     "passage": "A graph shows the distribution of bonuses received by staff. Alex says the average bonus is $25,000 and no one receives more than $50,000. The cumulative frequency graph shows values from 0-160 staff and 0-10 ($5k units) on axes.",
     "questionText": "Is Alex correct about the average bonus and maximum bonus?",
     "options": [

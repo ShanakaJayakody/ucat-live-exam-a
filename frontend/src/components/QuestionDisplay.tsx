@@ -28,7 +28,7 @@ export const QuestionDisplay: React.FC<Props> = ({ question, sectionKey, isRevie
       <h4 className="text-md font-semibold mb-3 sticky top-0 bg-white text-gray-900 pb-1">Question <span id="question-number">{useExamStore.getState().currentQuestionIndex + 1}</span></h4>
       <p id="question-text" className="mb-4 text-gray-900">{question.questionText}</p>
       <div id="options-container" className="space-y-2">
-        {question.options.map((option) => {
+        {question.options?.map((option) => {
           let labelClass = 'option-label ';
           if (isReviewMode) {
             const isCorrectAnswer = question.correctAnswer === option.id;

@@ -7,12 +7,17 @@ import { StateCreator } from 'zustand';
 export interface Question {
     id: string;
     section: string;
-    questionText: string;
-    options: { id: string; text: string }[];
-    correctAnswer: string;
+    questionText?: string; // Optional for syllogisms
+    options?: { id: string; text: string }[]; // Optional for syllogisms
+    correctAnswer?: string; // Optional for syllogisms
     passage?: string; 
     stimulus?: string;
-    explanation?: string; 
+    explanation?: string;
+    // New properties for Syllogism questions
+    questionType?: 'standard' | 'syllogism' | 'interpreting_information';
+    premises?: string[];
+    statements?: string[];
+    correctAnswers?: string[]; // Generic for multi-part answers
 }
 
 export interface ExamSections {
@@ -39,6 +44,7 @@ interface ExamState {
   reviewExam: () => void;
   finishExam: () => void;
   answerQuestion: (sectionKey: string, questionId: string, answer: any) => void;
+  answerMultiPartQuestion: (sectionKey: string, questionId: string, statementIndex: number, answer: string) => void;
   addQuestionTime: (sectionKey: string, questionId: string, time: number) => void;
   setReviewQuestion: (index: number | null) => void;
   toggleFlag: (sectionKey: string, questionId: string) => void;
@@ -82,6 +88,18 @@ const examStateCreator: StateCreator<ExamState> = (set, get) => ({
         },
       },
     })),
+
+  answerMultiPartQuestion: (sectionKey, questionId, statementIndex, answer) =>
+    set((state) => {
+      const newAnswers = { ...state.answers };
+      if (!newAnswers[sectionKey]) {
+        newAnswers[sectionKey] = {};
+      }
+      const questionAnswers = (newAnswers[sectionKey][questionId] as string[] | undefined) || [];
+      questionAnswers[statementIndex] = answer;
+      newAnswers[sectionKey][questionId] = questionAnswers;
+      return { answers: newAnswers };
+    }),
 
   setReviewQuestion: (index) => {
     if (index !== null) {

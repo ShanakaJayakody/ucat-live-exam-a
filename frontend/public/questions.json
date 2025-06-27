@@ -4203,5 +4203,24 @@
     "difficulty": 4,
     "tags": ["geometry", "area_calculation", "circle", "square", "subtraction"],
     "isActive": true
+  },
+  {
+    "id": "dm_syllogism_1",
+    "section": "decision_making",
+    "questionType": "syllogism",
+    "premises": [
+      "All chefs are creative.",
+      "Some creative people are painters.",
+      "No painters are accountants."
+    ],
+    "statements": [
+      "Some chefs are painters.",
+      "No accountants are creative.",
+      "Some creative people are not accountants.",
+      "All painters are creative.",
+      "Some chefs are not accountants."
+    ],
+    "correctAnswers": ["N", "N", "Y", "Y", "Y"],
+    "explanation": "1. Cannot be determined. 2. We only know some creative people are painters, not all. 3. This follows directly. 4. Follows from premise 2. 5. Since no painters are accountants and some creative people are painters, it follows that some creative people are not accountants, and since all chefs are creative, some chefs are not accountants."
   }
 ]
