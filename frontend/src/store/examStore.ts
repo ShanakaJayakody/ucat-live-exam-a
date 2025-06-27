@@ -145,6 +145,7 @@ const examStateCreator: StateCreator<ExamState> = (set, get) => ({
       set({
         currentSectionIndex: currentSectionIndex + 1,
         currentQuestionIndex: 0,
+        status: 'instruction',
       });
     } else {
       set({ status: 'finished' });

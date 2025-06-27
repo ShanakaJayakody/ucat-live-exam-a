@@ -1,151 +1,123 @@
-// File: src/components/SectionView.tsx (Corrected and Final Version)
+// File: src/components/SectionView.tsx (Updated with Timer)
 
-// A comment to trigger re-linting
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { useExamStore } from '../store/examStore';
 import { QuestionDisplay } from './QuestionDisplay';
-import { Navigator } from './Navigator';
-import Timer from './Timer';
+import { Timer } from './Timer';
+import { Navigator } from './Navigator'; // This will be created next
+
+// UCAT Section times in seconds for easy reference
+const sectionTimes = {
+    verbal_reasoning: 21 * 60,
+    decision_making: 31 * 60,
+    quantitative_reasoning: 24 * 60,
+    abstract_reasoning: 13 * 60,
+    situational_judgement: 26 * 60,
+};
 
 export const SectionView: React.FC = () => {
-  const {
-    sections,
-    sectionOrder,
-    currentSectionIndex,
-    currentQuestionIndex,
-    nextQuestion,
-    prevQuestion,
-    flagged,
-    toggleFlag,
-    reviewExam,
-    finishExam,
-    addQuestionTime,
-    reviewQuestionIndex,
-    setReviewQuestion,
-  } = useExamStore();
+    const {
+        sections,
+        sectionOrder,
+        currentSectionIndex,
+        currentQuestionIndex,
+        nextQuestion,
+        prevQuestion,
+        goToQuestion,
+        flagged,
+        toggleFlag,
+        reviewExam,
+        completeSection,
+        reviewQuestionIndex,
+    } = useExamStore();
 
-  const [isNavigatorOpen, setIsNavigatorOpen] = useState(false);
-  const questionStartTime = useRef<number>(Date.now());
-  
-  const sectionKey = sectionOrder[currentSectionIndex];
-  const currentSection = sections[sectionKey];
-  const question = currentSection?.[currentQuestionIndex];
-  const totalQuestions = currentSection?.length || 0;
-  
-  const isReviewMode = reviewQuestionIndex !== null;
+    const [isNavigatorOpen, setIsNavigatorOpen] = useState(false);
 
-  useEffect(() => {
-    if (!currentSection || isReviewMode) return;
+    const sectionKey = sectionOrder[currentSectionIndex];
+    const currentSection = sections[sectionKey];
+    const question = currentSection?.[currentQuestionIndex];
+    const totalQuestions = currentSection?.length || 0;
+    const isReviewMode = reviewQuestionIndex !== null;
+    const isFlagged = question ? flagged[sectionKey]?.[question.id] || false : false;
 
-    const previousQuestionId = currentSection[currentQuestionIndex > 0 ? currentQuestionIndex - 1 : 0].id;
-    const timeSpent = Date.now() - questionStartTime.current;
-    
-    if (currentQuestionIndex > 0) {
-      addQuestionTime(sectionKey, previousQuestionId, timeSpent);
+    if (!question) {
+        return <div>Loading...</div>;
     }
 
-    questionStartTime.current = Date.now();
-
-    return () => {
-      if (currentSection) {
-        const currentQuestionId = currentSection[currentQuestionIndex].id;
-        const finalTimeSpent = Date.now() - questionStartTime.current;
-        addQuestionTime(sectionKey, currentQuestionId, finalTimeSpent);
-      }
-    };
-  }, [currentQuestionIndex, sectionKey, addQuestionTime, currentSection, isReviewMode]);
-
-  const handleFlag = () => {
-    if (isReviewMode || !question) return;
-    toggleFlag(sectionKey, question.id);
-  };
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (isNavigatorOpen || document.activeElement?.tagName === 'INPUT' || document.activeElement?.tagName === 'TEXTAREA') return;
-      if (isReviewMode || !question) return;
-
-      if (e.altKey || e.metaKey) {
-        if (e.key.toLowerCase() === 'n' && currentQuestionIndex < totalQuestions - 1) {
-          e.preventDefault();
-          nextQuestion();
+    const handleFlag = () => {
+        if (!isReviewMode) {
+            toggleFlag(sectionKey, question.id);
         }
-        if (e.key.toLowerCase() === 'p' && currentQuestionIndex > 0) {
-          e.preventDefault();
-          prevQuestion();
-        }
-        if (e.key.toLowerCase() === 'f') {
-          e.preventDefault();
-          handleFlag();
-        }
-      } else if (['a', 'b', 'c', 'd'].includes(e.key.toLowerCase())) {
-        e.preventDefault();
-        const option = question.options.find(opt => opt.id.toLowerCase() === e.key.toLowerCase());
-        if (option) {
-          useExamStore.getState().answerQuestion(sectionKey, question.id, option.id);
-        }
-      }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [isNavigatorOpen, isReviewMode, nextQuestion, prevQuestion, handleFlag, question, sectionKey, totalQuestions, currentQuestionIndex]);
+    const handleNext = () => {
+        if (currentQuestionIndex === totalQuestions - 1) {
+            completeSection();
+        } else {
+            nextQuestion();
+        }
+    };
+    
+    const sectionName = sectionKey.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 
-  if (!currentSection) {
-    return <div>Loading section...</div>;
-  }
+    return (
+        <div className="flex flex-col h-full bg-white">
+            {/* Header Bar */}
+            <header className="header-bar">
+                <span className="font-semibold">{sectionName}</span>
+                <div className="flex items-center space-x-4">
+                    <Timer
+                        key={sectionKey}
+                        durationInSeconds={24 * 60} // Placeholder time
+                        onComplete={completeSection}
+                    />
+                    <span className="text-sm">
+                        Question {currentQuestionIndex + 1} of {totalQuestions}
+                    </span>
+                    <button
+                        onClick={handleFlag}
+                        className={`text-sm font-medium border border-white rounded px-2 py-1 transition-colors duration-150 ${isFlagged ? 'flagged' : ''}`}
+                        id="flag-button"
+                        disabled={isReviewMode}
+                    >
+                        {isFlagged ? 'Unflag' : 'Flag for Review'}
+                    </button>
+                </div>
+            </header>
 
-  if (!question) {
-    return <div>Loading question...</div>;
-  }
-  
-  const sectionName = sectionKey.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-  const isFlagged = flagged[sectionKey]?.[question.id] || false;
-  
-  return (
-    <div id="exam-screen" className="flex flex-col h-full">
-      <div className="header-bar">
-        <span id="exam-title" className="font-semibold">{sectionName}</span>
-        <div className="flex items-center space-x-4">
-          {isReviewMode && <span className="font-semibold">Reviewing Question</span>}
-          {!isReviewMode && <Timer initialTime={21 * 60} onTimeout={finishExam} />}
-          <span className="text-sm">Question <span id="question-number-info">{currentQuestionIndex + 1}</span> of {totalQuestions}</span>
-          <button id="flag-button" onClick={handleFlag} disabled={isReviewMode} className={`text-sm font-medium border border-white rounded px-2 py-1 transition-colors duration-150 ${isFlagged ? 'flagged' : ''}`}>
-            {isFlagged ? 'Unflag' : 'Flag for Review'}
-          </button>
+            {/* Main Content Area */}
+            <main className="main-content-area">
+                <div className="passage-column resizable-text">
+                    <h3 className="text-lg font-semibold mb-2 sticky top-0 bg-white text-gray-900 pb-1">
+                        Passage
+                    </h3>
+                    <div className="text-base text-gray-900 leading-relaxed whitespace-pre-wrap">
+                        {question.passage || "No passage for this question."}
+                    </div>
+                </div>
+                <div className="w-1.5 bg-gray-200"></div>
+                <div className="question-column resizable-text">
+                    <QuestionDisplay question={question} sectionKey={sectionKey} isReviewMode={isReviewMode} />
+                </div>
+            </main>
+
+            {/* Footer Bar */}
+            <footer className="footer-bar">
+                <button onClick={reviewExam}>End Exam</button>
+                <div className="flex items-center space-x-2 ml-auto">
+                    <button onClick={prevQuestion} disabled={currentQuestionIndex === 0}>
+                        ← Previous
+                    </button>
+                    <button onClick={() => setIsNavigatorOpen(true)}>Navigator</button>
+                    <button onClick={handleNext} id="next-button">
+                        {currentQuestionIndex === totalQuestions - 1 ? 'Finish Section' : 'Next →'}
+                    </button>
+                </div>
+            </footer>
+
+            {isNavigatorOpen && <Navigator onClose={() => setIsNavigatorOpen(false)} />}
         </div>
-      </div>
-      <div className="main-content-area">
-        <div className="passage-column resizable-text">
-          <h3 className="text-lg font-semibold mb-2 sticky top-0 bg-white text-gray-900 pb-1">Passage</h3>
-          <div id="passage-text" className="text-base text-gray-900 leading-relaxed whitespace-pre-wrap">
-            {question.passage || question.stimulus}
-          </div>
-        </div>
-        <div className="w-1.5 bg-blue-500"></div>
-        <div className="question-column resizable-text">
-          <QuestionDisplay question={question} sectionKey={sectionKey} isReviewMode={isReviewMode} />
-        </div>
-      </div>
-      <div className="footer-bar">
-        {isReviewMode ? (
-          <button onClick={() => setReviewQuestion(null)} className="secondary-button-new">← Back to Results</button>
-        ) : (
-          <>
-            <button id="end-exam-button-footer" onClick={reviewExam}>End Exam</button>
-            <div className="flex items-center space-x-2 ml-auto">
-              <button id="prev-button" onClick={prevQuestion} disabled={currentQuestionIndex === 0}>← Previous</button>
-              <button id="navigator-button" onClick={() => setIsNavigatorOpen(true)}>Navigator</button>
-              <button id="next-button" onClick={nextQuestion}>
-                {currentQuestionIndex === totalQuestions - 1 ? 'Next Section' : 'Next →'}
-              </button>
-            </div>
-          </>
-        )}
-      </div>
-      {isNavigatorOpen && <Navigator onClose={() => setIsNavigatorOpen(false)} />}
-    </div>
-  );
+    );
 };
 
 export default SectionView;
